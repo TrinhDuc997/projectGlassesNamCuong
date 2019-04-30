@@ -90,3 +90,5 @@ D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\bin\System.Web
 D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\bin\System.Web.Helpers.xml
 D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\bin\System.Web.Mvc.xml
 D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\obj\Debug\GlassesOnline.csprojResolveAssemblyReference.cache
+D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\bin\EntityFramework.dll
+D:\TaiLieuHocKyVI\QLDA_CNTT\projectGlasseseNamCuong\GlassesOnline\bin\EntityFramework.xml

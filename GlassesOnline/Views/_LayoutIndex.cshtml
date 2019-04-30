@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <!-- CSS Part Start-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Css/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Css/colorbox.html" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Content/Css/carousel.css" media="screen" />
@@ -41,21 +42,21 @@
             <!-- Top Right part Links-->
             <div id="welcome">
                 <div id="language">
-                    Language
+                    Ngôn Ngữ
                     <ul>
                         <li><a title="English"><img src="~/Content/Images/Design/flags/gb.png" alt="English" />English</a></li>
                     </ul>
                 </div>
                 <div class="links">
-                    My Account
+                    Tài Khoản
                     <ul>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="#">Tài Khoản Của Bạn</a></li>
+                        <li><a href="cart.html">Giỏ Hàng Của Bạn</a></li>
                     </ul>
                 </div>
-                <a href="login.html">login</a> <a href="register.html">create an account</a>
+                <a href="login.html">Đăng Nhập</a> <a href="register.html">Tạo Tài Khoản</a>
             </div>
-            <div id="logo"><a href="index-2.html"><img src="~/Content/Images/Design/logo.png" title="ecommerce Html Template" alt="ecommerce Html Template" /></a></div>
+            <div id="logo"><a href="index-2.html"><img src="~/Content/Images/Design/logoNamCuong.PNG" title="ecommerce Html Template" alt="ecommerce Html Template" /></a></div>
             <div id="search">
                 <div class="button-search"></div>
                 <input type="text" value="" placeholder="" id="filter_name" name="search">
@@ -64,7 +65,7 @@
             <div id="cart">
                 <div class="heading">
                     <h4><img width="32" height="32" alt="small-cart-icon" src="~/Content/Images/Design/cart-bg.png"></h4>
-                    <a><span id="cart-total">0 item(s) - $0.00</span></a>
+                    <a><span id="cart-total">0 Sản Phẩm - 0.00 VND</span></a>
                 </div>
                 <div class="content">
                     <div class="mini-cart-info">
@@ -98,25 +99,13 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td class="right"><b>Sub-Total:</b></td>
-                                    <td class="right">$399.99</td>
-                                </tr>
-                                <tr>
-                                    <td class="right"><b>Eco Tax (-2.00):</b></td>
-                                    <td class="right">$6.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="right"><b>VAT (17.5%):</b></td>
-                                    <td class="right">$70.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="right"><b>Total:</b></td>
+                                    <td class="right"><b>Tổng Tiền:</b></td>
                                     <td class="right">$475.99</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="checkout"><a href="cart.html" class="button">View Cart</a> &nbsp; <a href="checkout.html" class="button">Checkout</a></div>
+                    <div class="checkout"><a href="cart.html" class="button">Xem Giỏ Hàng</a></div>
                 </div>
             </div>
             <!--Mini Cart End-->
@@ -125,7 +114,7 @@
         <div id="menu">
             <span>Menu</span>
             <ul>
-                <li class="home"><a title="Home" href="index-2.html"><span>Home</span></a></li>
+                <li class="home"><a title="Home" href="index-2.html"><span class="fa fa-home"></span></a></li>
                 <li>
                     <a href="category.html">Kính Mát</a>
                     <div>
@@ -208,21 +197,21 @@
                                     <label><input type="radio" name="optradio">Nữ</label>
                                 </li>
                             </ul>
-                            <select id="SL-GT" name="GioiTinh">
+                            <select id="GioiTinh" name="GioiTinh">
                                 <option value="All">Khoảng Giá</option>
                                 <option value="Nữ">Dưới 200.000</option>
                                 <option value="Nữ">từ 200.000 đến 500.000</option>
                                 <option value="Nữ">từ 500.000 đến 1.000.000</option>
                                 <option value="Nữ">Trên 2.000.000</option>
                             </select>
-                            <select id="SetGia" name="KhoangGia">
-                                <option value="All">Khoảng Giá</option>
-                                <option value="Nữ">Dưới 200.000</option>
-                                <option value="Nữ">từ 200.000 đến 500.000</option>
-                                <option value="Nữ">từ 500.000 đến 1.000.000</option>
-                                <option value="Nữ">Trên 2.000.000</option>
+                            <select id="KieuGiang" name="KD">
+                                <option value="All">Kiểu Dáng</option>
+                                <option value="Nữ">Tròn</option>
+                                <option value="Nữ">Vuông</option>
+                                <option value="Nữ">Oval</option>
+                                <option value="Nữ">Rimless</option>
                             </select>
-                            <select id="TH" name="ThuongHieu">
+                            <select id="ThuongHieu" name="ThuongHieu">
                                 <option value="All">Thuong Hieu 1</option>
                                 <option value="Nữ">Thuong Hieu 2</option>
                                 <option value="Nữ">Thuong Hieu 3</option>
@@ -235,7 +224,7 @@
                 <!--Categories Part End-->
                 <!--Latest Product Start-->
                 <div class="box">
-                    <div class="box-heading">Latest</div>
+                    <div class="box-heading">Sản Phẩm Mua Nhiều</div>
                     <div class="box-content">
                         <div class="box-product">
                             <div>
@@ -274,7 +263,7 @@
                 <!--Latest Product End-->
                 <!--Specials Product Start-->
                 <div class="box">
-                    <div class="box-heading">Specials</div>
+                    <div class="box-heading"> Khuyến Mãi</div>
                     <div class="box-content">
                         <div class="box-product">
                             <div>
@@ -338,16 +327,16 @@
     <!--Footer Part Start-->
     <div id="footer">
         <div class="column">
-            <h3>Information</h3>
+            <h3>Thông Tin Liên Hệ</h3>
             <ul>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="about-us.html">Delivery Information</a></li>
-                <li><a href="about-us.html">Privacy Policy</a></li>
-                <li><a href="elements.html">Elements</a></li>
+                <li><a href="about-us.html">HOT LINE: 0909909999</a></li>
+                <li><a href="about-us.html">Thời Gian Phục Vụ:8h-21h</a></li>
+                <li><a href="about-us.html">Địa Chỉ:Đâu đó quanh việt nam</a></li>
+                <li><a href="elements.html">Online:</a></li>
             </ul>
         </div>
         <div class="column">
-            <h3>Customer Service</h3>
+            <h3>Giới Thiệu</h3>
             <ul>
                 <li><a href="contact-us.html">Contact Us</a></li>
                 <li><a href="#">Returns</a></li>
@@ -355,36 +344,17 @@
             </ul>
         </div>
         <div class="column">
-            <h3>Extras</h3>
+            <h3>Bản Đồ</h3>
             <ul>
-                <li><a href="#">Brands</a></li>
-                <li><a href="#">Gift Vouchers</a></li>
-                <li><a href="#">Affiliates</a></li>
-                <li><a href="#">Specials</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="sitemap.html">Site Map</a></li>
             </ul>
         </div>
-        <div class="column">
-            <h3>My Account</h3>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Wish List</a></li>
-                <li><a href="#">Newsletter</a></li>
-            </ul>
-        </div>
-        <div class="contact">
-            <ul>
-                <li class="address">Second plaza, Delhi, india.</li>
-                <li class="mobile">191 191 91 19</li>
-                <li class="email"><a href="mailto:info@demo.com">info@demo.com</a></li>
-                <li class="fax">191 191 91 19</li>
-            </ul>
-        </div>
-        <div class="social"> <a href="http://facebook.com/160281810726316" target="_blank"><img src="image/facebook.png" alt="Facebook" title="Facebook"></a> <a href="https://twitter.com/#!/#" target="_blank"><img src="image/twitter.png" alt="Twitter" title="Twitter"></a> <a href="https://plus.google.com/u/0/#" target="_blank"><img src="image/googleplus.png" alt="Google+" title="Google+"></a> <a href="http://pinterest.com/#" target="_blank"><img src="image/pinterest.png" alt="Pinterest" title="Pinterest"></a> <a href="#" target="_blank"><img src="image/rss.png" alt="RSS" title="RSS"></a> <a href="http://www.vimeo.com/#" target="_blank"><img src="image/vimeo.png" alt="Vimeo" title="Vimeo"></a> <a href="http://www.flickr.com/photos/#" target="_blank"><img src="image/flickr.png" alt="flickr" title="Flickr"></a> <a href="http://www.youtube.com/#" target="_blank"><img src="image/youtube.png" alt="YouTube" title="YouTube"></a> <a href="skype:#?call" target="_blank"><img src="image/skype.png" alt="skype" title="Skype"></a> <a href="#" target="_blank"><img src="image/blogger.png" alt="Blogger" title="Blogger"></a> </div>
+        <div class="social"> <a href="http://facebook.com/160281810726316" target="_blank"><img src="~/Content/Images/Design/facebook.png" alt="Facebook" title="Facebook"></a> <a href="https://twitter.com/#!/#" target="_blank"><img src="~/Content/Images/Design/twitter.png" alt="Twitter" title="Twitter"></a> <a href="https://plus.google.com/u/0/#" target="_blank"><img src="~/Content/Images/Design/googleplus.png" alt="Google+" title="Google+"></a> <a href="http://pinterest.com/#" target="_blank"><img src="~/Content/Images/Design/pinterest.png" alt="Pinterest" title="Pinterest"></a> <a href="#" target="_blank"><img src="~/Content/Images/Design/rss.png" alt="RSS" title="RSS"></a> <a href="http://www.vimeo.com/#" target="_blank"><img src="~/Content/Images/Design/vimeo.png" alt="Vimeo" title="Vimeo"></a> <a href="http://www.flickr.com/photos/#" target="_blank"><img src="~/Content/Images/Design/flickr.png" alt="flickr" title="Flickr"></a> <a href="http://www.youtube.com/#" target="_blank"><img src="~/Content/Images/Design/youtube.png" alt="YouTube" title="YouTube"></a> <a href="skype:#?call" target="_blank"><img src="~/Content/Images/Design/skype.png" alt="skype" title="Skype"></a> <a href="#" target="_blank"><img src="~/Content/Images/Design/blogger.png" alt="Blogger" title="Blogger"></a> </div>
         <div class="clear"></div>
         <div id="powered">
-            Bigshop <a href="#">Html Template </a> &copy; 2013 &nbsp;|&nbsp; Template By <a target="_blank" href="http://harnishdesign.net/">Harnish Design</a>
-            <div class="payments_types"> <img src="image/payment_paypal.png" alt="paypal" title="PayPal"> <img src="image/payment_american.png" alt="american-express" title="American Express"> <img src="image/payment_2checkout.png" alt="2checkout" title="2checkout"> <img src="image/payment_maestro.png" alt="maestro" title="Maestro"> <img src="image/payment_discover.png" alt="discover" title="Discover"> <img src="image/payment_mastercard.png" alt="mastercard" title="MasterCard"> <img src="image/payment_visa.png" alt="visa" title="Visa"> <img src="image/payment_sagepay.png" alt="sagepay" title="sagepay"> <img src="image/payment_moneybookers.png" alt="moneybookers" title="Moneybookers"> </div>
+            <div class="payments_types"> <img src="~/Content/Images/Design/payment_paypal.png" alt="paypal" title="PayPal"> <img src="~/Content/Images/Design/payment_american.png" alt="american-express" title="American Express"> <img src="~/Content/Images/Design/payment_2checkout.png" alt="2checkout" title="2checkout"> <img src="~/Content/Images/Design/payment_maestro.png" alt="maestro" title="Maestro"> <img src="~/Content/Images/Design/payment_discover.png" alt="discover" title="Discover"> <img src="~/Content/Images/Design/payment_mastercard.png" alt="mastercard" title="MasterCard"> <img src="~/Content/Images/Design/payment_visa.png" alt="visa" title="Visa"> <img src="~/Content/Images/Design/payment_sagepay.png" alt="sagepay" title="sagepay"> <img src="~/Content/Images/Design/payment_moneybookers.png" alt="moneybookers" title="Moneybookers"> </div>
         </div>
     </div>
     <!--Footer Part End-->

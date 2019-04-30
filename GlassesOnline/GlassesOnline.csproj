@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +80,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -119,6 +126,7 @@
   <ItemGroup>
     <Content Include="Content\Css\carousel.css" />
     <Content Include="Content\Css\colorbox.html" />
+    <Content Include="Content\Css\Custom.css" />
     <Content Include="Content\Css\slideshowCss.css" />
     <Content Include="Content\Css\stylesheet.css" />
     <Content Include="Content\Images\Design\arrow-down.png" />
@@ -143,7 +151,7 @@
     <Content Include="Content\Images\Design\line-bg.png" />
     <Content Include="Content\Images\Design\list-icon.png" />
     <Content Include="Content\Images\Design\loading.gif" />
-    <Content Include="Content\Images\Design\logo.png" />
+    <Content Include="Content\Images\Design\logoNamCuong.PNG" />
     <Content Include="Content\Images\Design\menu.png" />
     <Content Include="Content\Images\Design\patterns\10.png" />
     <Content Include="Content\Images\Design\payment_2checkout.png" />
@@ -207,6 +215,16 @@
     <Content Include="Content\Images\Design\youtube.png" />
     <Content Include="Content\Images\Design\zoom-plus.png" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DBGlassesNamCuong.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+      <LastGenOutput>DBGlassesNamCuong.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBGlassesNamCuong.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+      <LastGenOutput>DBGlassesNamCuong.cs</LastGenOutput>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\cloud_zoom.js" />
@@ -231,6 +249,60 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ADMIN.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTDONHANG.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTPHIEUNHAP.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANHGIASP.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBGlassesNamCuong.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBGlassesNamCuong.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBGlassesNamCuong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBGlassesNamCuong.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DONDATHANG.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HINHTHUCGIAOHANG.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HINHTHUCTHANHTOAN.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISANPHAM.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHACUNGCAP.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHIEUNHAP.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAMGLA.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +313,13 @@
     </Content>
     <Content Include="Views\_LayoutIndex.cshtml" />
     <Content Include="Views\Index\ViewIndex.cshtml" />
+    <EntityDeploy Include="Models\DBGlassesNamCuong.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBGlassesNamCuong.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBGlassesNamCuong.edmx.diagram">
+      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -250,7 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

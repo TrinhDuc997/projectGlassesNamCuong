@@ -1,1 +1,37 @@
-﻿
+﻿#logo img {
+    width: 240px;
+    height: 80px;
+}
+#header{
+    min-height:110px;
+}
+li.home a span{
+    color: white;
+    height:35px;
+    font-size: 32px;
+    text-indent:inherit
+}
+select{
+    background: #f86b38;
+    border: 1px solid #a52e02;
+    margin: 10px 5px 20px 0;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 7px 0px;
+}
+#KieuGiang{
+    padding-right: 90px;
+}
+#ThuongHieu{
+    padding-right: 64px;
+}
+.box-product{
+    overflow:hidden;
+}
+.box .box-heading{
+    font-size:15px;
+}
+#footer .column ul{
+    width:370px;
+}
