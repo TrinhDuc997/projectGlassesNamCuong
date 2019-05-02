@@ -278,6 +278,7 @@
     <Compile Include="Controllers\DKDNController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\PartialViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -359,6 +360,7 @@
     <Content Include="Views\DKDN\ViewDangky.cshtml" />
     <Content Include="Views\GioHang\ViewGiohang.cshtml" />
     <Content Include="Views\ChiTiet\viewchitiet.cshtml" />
+    <Content Include="Views\PartialView\PartialBuyMore.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
