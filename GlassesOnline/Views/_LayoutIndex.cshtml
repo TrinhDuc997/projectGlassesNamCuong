@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Css/colorbox.html" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Content/Css/carousel.css" media="screen" />
     <link href="~/Content/Css/slideshowCss.css" rel="stylesheet" />
-    <link href="~/Content/Css/Custom.css" rel="stylesheet" />
+    <link href="~/Content/Css/CustomCss.css" rel="stylesheet" />
 
 
     <!-- CSS Part End-->
@@ -54,7 +54,20 @@
                         <li><a href="cart.html">Giỏ Hàng Của Bạn</a></li>
                     </ul>
                 </div>
-                <a href="login.html">Đăng Nhập</a> <a href="register.html">Tạo Tài Khoản</a>
+                @{
+                    if (Session["MaKH"] == null)
+                    {
+                        <a href="login.html">Đăng Nhập</a>
+                    }
+
+                    else
+                    {
+                        <a href="login.html">Xin Chào! @Session["TenKH"]</a>
+                    }
+
+                }
+                
+                <a href="register.html">Tạo Tài Khoản</a>
             </div>
             <div id="logo"><a href="index-2.html"><img src="~/Content/Images/Design/logoNamCuong.PNG" title="ecommerce Html Template" alt="ecommerce Html Template" /></a></div>
             <div id="search">
@@ -291,35 +304,7 @@
             </div>
             <!--Left End-->
             <!--Middle Part Start-->
-            <div id="content">
-                <!--Slideshow Part Start-->
-                <div class="slider-wrapper">
-                    <div id="slideshow" class="nivoSlider">
-                     <a href="#"><img src="~/Content/Images/Design/slider/slider-1.jpg" alt="slideshow-1" /></a>
-                     <a href="#"><img src="~/Content/Images/Design/slider/slider-2.jpg" alt="slideshow-2" /></a>
-                     <a href="#"><img src="~/Content/Images/Design/slider/slider-3.jpg" alt="slideshow-3" /></a>
-                     <a href="#"><img src="~/Content/Images/Design/slider/slider-4.jpg" alt="slideshow-4" /></a> 
-                    </div>
-                    <div class="nivo-directionNav">
-                       <a class="nivo-prevNav">Prev</a>
-                       <a class="nivo-nextNav">Next</a>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                    	$('#slideshow').nivoSlider();
-                        });
-                </script>
-                <!--Slideshow Part End-->
-                <!--Featured Product Part Start-->
-                <div class="box">
-                    <div class="box-heading">Featured</div>
-                    <div class="box-content">
-                        @RenderBody()
-                    </div>
-                </div>
-                <!--Featured Product Part End-->
-            </div>
+            @RenderBody()
             <!--Middle Part End-->
             <div class="clear"></div>
         </div>

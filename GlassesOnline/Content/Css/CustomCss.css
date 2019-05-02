@@ -35,3 +35,8 @@ select{
 #footer .column ul{
     width:370px;
 }
+.box-product .image img{
+    width: 152px;
+    height: 152px;
+    padding: 0px;
+}

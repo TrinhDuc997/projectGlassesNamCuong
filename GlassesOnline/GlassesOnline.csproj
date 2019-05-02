@@ -126,7 +126,7 @@
   <ItemGroup>
     <Content Include="Content\Css\carousel.css" />
     <Content Include="Content\Css\colorbox.html" />
-    <Content Include="Content\Css\Custom.css" />
+    <Content Include="Content\Css\CustomCss.css" />
     <Content Include="Content\Css\slideshowCss.css" />
     <Content Include="Content\Css\stylesheet.css" />
     <Content Include="Content\Images\Design\arrow-down.png" />
@@ -214,6 +214,32 @@
     <Content Include="Content\Images\Design\warning.png" />
     <Content Include="Content\Images\Design\youtube.png" />
     <Content Include="Content\Images\Design\zoom-plus.png" />
+    <Content Include="Content\Images\Product\gongkinhcanch.jpg" />
+    <Content Include="Content\Images\Product\gongkinhcanhato.jpg" />
+    <Content Include="Content\Images\Product\gongkinhcannhua.jpg" />
+    <Content Include="Content\Images\Product\gongkinhcanrayban.jpg" />
+    <Content Include="Content\Images\Product\gongkinhcantron.jpg" />
+    <Content Include="Content\Images\Product\gongkinhharry.jpg" />
+    <Content Include="Content\Images\Product\gongkinhnhua.jpg" />
+    <Content Include="Content\Images\Product\gongkinhnobita.jpg" />
+    <Content Include="Content\Images\Product\gongkinhoakley.jpg" />
+    <Content Include="Content\Images\Product\gongkinhtron.jpg" />
+    <Content Include="Content\Images\Product\kinhcancharmant.jpg" />
+    <Content Include="Content\Images\Product\kinhcanJubilant.jpg" />
+    <Content Include="Content\Images\Product\kinhcanrayban.jpg" />
+    <Content Include="Content\Images\Product\kinhcantf.jpg" />
+    <Content Include="Content\Images\Product\kinhcanunisex.jpg" />
+    <Content Include="Content\Images\Product\kinhmatburberry.jpg" />
+    <Content Include="Content\Images\Product\kinhmatdio.jpg" />
+    <Content Include="Content\Images\Product\kinhmatgen.jpg" />
+    <Content Include="Content\Images\Product\kinhmatGiGi.jpg" />
+    <Content Include="Content\Images\Product\kinhmatJaguar.jpg" />
+    <Content Include="Content\Images\Product\kinhmatkaizi.jpg" />
+    <Content Include="Content\Images\Product\kinhmatRayban.jpg" />
+    <Content Include="Content\Images\Product\kinhmatRaybanpink.jpg" />
+    <Content Include="Content\Images\Product\kinhmatROZA.jpg" />
+    <Content Include="Content\Images\Product\matkinhcan.jpg" />
+    <Content Include="Content\Images\Product\matkinhthoitrang.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Models\DBGlassesNamCuong.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -241,10 +267,13 @@
     <Content Include="scripts\jquery.jcarousel.min.js" />
     <Content Include="scripts\jquery.nivo.slider.pack.js" />
     <Content Include="scripts\tabs.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DKDNController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -306,7 +335,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -319,7 +350,9 @@
     </EntityDeploy>
     <Content Include="Models\DBGlassesNamCuong.edmx.diagram">
       <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\DKDN\ViewDangNhap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

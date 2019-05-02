@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ViewDangNhap";
+    Layout = "~/Views/_LayoutIndex.cshtml";
+}
+<div id="content">
+    <!--Breadcrumb Part Start-->
+    <div class="breadcrumb"> <a href="index-2.html">Home</a> » <a href="#">Account</a> » <a href="login.html">Login</a> </div>
+    <!--Breadcrumb Part End-->
+    <h1>Đăng Nhập </h1>
+    <div class="login-content">
+        <div class="left">
+            <h2>Tạo Tài Khoản Mới</h2>
+            <div class="content">
+                <p><b>Đăng Ký Tài Khoản</b></p>
+                <p>Bạn Đã Có Tài Khoản? Nếu Chưa Vui Lòng Nhấn Tiếp Tục Để Đăng Ký!</p>
+                <a class="button" href="#">Tiếp Tục</a>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Đăng Nhập</h2>
+            <form method="post" action="/DKDN/DangNhap">
+                <div class="content">
+                    <p>Bạn Đã Có Tài Khoản! Đăng Nhập Tại Đây!</p>
+                    <b>Tên Đăng Nhập:</b><br>
+                    <input type="text" value="" name="TaiKhoan">
+                    <br>
+                    <br>
+                    <b>Mật Khẩu:</b><br>
+                    <input type="password" value="" name="MatKhau">
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit" class="button" value="Đăng Nhập">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
