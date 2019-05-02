@@ -126,7 +126,7 @@
   <ItemGroup>
     <Content Include="Content\Css\carousel.css" />
     <Content Include="Content\Css\colorbox.html" />
-    <Content Include="Content\Css\CustomCss.css" />
+    <Content Include="Content\Css\CssCustom.css" />
     <Content Include="Content\Css\slideshowCss.css" />
     <Content Include="Content\Css\stylesheet.css" />
     <Content Include="Content\Images\Design\arrow-down.png" />
@@ -275,6 +275,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DKDNController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\PartialViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -353,6 +354,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\DKDN\ViewDangNhap.cshtml" />
+    <Content Include="Views\DKDN\ViewDangKy.cshtml" />
+    <Content Include="Views\PartialView\PatialBuyMore.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

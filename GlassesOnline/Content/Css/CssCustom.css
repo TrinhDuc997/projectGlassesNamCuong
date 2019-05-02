@@ -40,3 +40,8 @@ select{
     height: 152px;
     padding: 0px;
 }
+.box-product .image .BuyMore{
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+}
