@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,7 +127,7 @@
   <ItemGroup>
     <Content Include="Content\Css\carousel.css" />
     <Content Include="Content\Css\colorbox.html" />
-    <Content Include="Content\Css\CustomCss.css" />
+    <Content Include="Content\Css\Custom1Css.css" />
     <Content Include="Content\Css\slideshowCss.css" />
     <Content Include="Content\Css\stylesheet.css" />
     <Content Include="Content\Images\Design\arrow-down.png" />
@@ -273,7 +274,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietController.cs" />
     <Compile Include="Controllers\DKDNController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -353,6 +356,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\DKDN\ViewDangNhap.cshtml" />
+    <Content Include="Views\DKDN\ViewDangky.cshtml" />
+    <Content Include="Views\GioHang\ViewGiohang.cshtml" />
+    <Content Include="Views\ChiTiet\viewchitiet.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

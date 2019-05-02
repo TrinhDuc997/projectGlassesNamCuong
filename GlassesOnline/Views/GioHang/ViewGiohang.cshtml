@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "ViewGiohang";
+    Layout = "~/Views/_LayoutIndex.cshtml";
+}
+<div id="content">
+    <!--Breadcrumb Part Start-->
+ 
+    <h1>Giỏ Hàng &nbsp;</h1>
+    <form enctype="multipart/form-data" method="post" action="#">
+        <div class="cart-info">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="image">Ảnh Sản Phẩm</td>
+                        <td class="name">Tên Sản Phẩm</td>
+                        <td class="quantity">Số Lượng</td>
+                        <td class="price">Đơn Giá</td>
+                        <td class="total">Tổng Tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="image"><a href="#"><img title="Bag Lady" alt="Bag Lady" src="image/product/hp_1-60x60.jpg"></a></td>
+                        <td class="name"><a href="#">Bag Lady</a></td>
+                        
+                        <td class="quantity">
+                            <input type="text" size="1" value="1" name="" class="w30">
+                            &nbsp;
+                            <input type="image" title="Update" alt="Update" src="image/update.png">
+                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
+                        </td>
+                        <td class="price">$131.25</td>
+                        <td class="total">$131.25</td>
+                    </tr>
+                    <tr>
+                        <td class="image"><a href="#"><img title="Bag Lady" alt="Bag Lady" src="image/product/macbook_pro_1-60x60.jpg"></a></td>
+                        <td class="name">
+                            <a href="#">MacBook Pro</a><br>
+                            <small>Reward Points: 100</small>
+                        </td>
+                        
+                        <td class="quantity">
+                            <input type="text" size="1" value="1" name="" class="w30">
+                            &nbsp;
+                            <input type="image" title="Update" alt="Update" src="image/update.png">
+                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
+                        </td>
+                        <td class="price">$181.00</td>
+                        <td class="total">$181.00</td>
+                    </tr>
+                    <tr>
+                        <td class="image"><a href="#"><img title="Bag Lady" alt="Chair Swing" src="image/product/samsung_tab_1-60x60.jpg"></a></td>
+                        <td class="name"><a href="#">Chair Swing</a></td>
+                       
+                        <td class="quantity">
+                            <input type="text" size="1" value="1" name="" class="w30">
+                            &nbsp;
+                            <input type="image" title="Update" alt="Update" src="image/update.png">
+                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
+                        </td>
+                        <td class="price">$140.50</td>
+                        <td class="total">$140.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+    
+    
+    <div class="cart-total" style="border-top: 1px solid #ffffff;
+">
+        <table id="total" >
+            <tbody>              
+                <tr>
+                    <td class="right"><b>Tổng Cộng:</b></td>
+                    <td class="right">$608.41</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="buttons">
+        <div class="right"><a class="button" href="checkout.html">Thanh Toán ></a></div>
+        <div class="center"><a class="button" href="#" style="float: left;"> < Tiếp Tục Mua</a></div>
+    </div>
+</div>
