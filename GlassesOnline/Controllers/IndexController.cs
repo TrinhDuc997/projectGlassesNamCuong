@@ -15,5 +15,23 @@ namespace GlassesOnline.Controllers
         {   
             return View(db.SANPHAMGLAS.ToList());
         }
+        public ActionResult ViewMatKinh(int nhomSP)
+        {
+            var DanhSachKinh = from kinh in db.SANPHAMGLAS
+                               select kinh;
+            if (nhomSP == 1)
+            {
+                DanhSachKinh = from kinh in db.SANPHAMGLAS
+                                   where kinh.MaLoai == "KC" || kinh.MaLoai == "KMNU" || kinh.MaLoai == "KMN"
+                                   select kinh;
+            }
+            else if(nhomSP == 2)
+            {
+                DanhSachKinh = from kinh in db.SANPHAMGLAS
+                                   where kinh.MaLoai == "GKC" || kinh.MaLoai == "GKM"
+                               select kinh;
+            }
+            return View(DanhSachKinh.ToList());
+        }
     }
 }

@@ -198,10 +198,10 @@
     <Content Include="Content\Images\Design\remove.png" />
     <Content Include="Content\Images\Design\rss.png" />
     <Content Include="Content\Images\Design\skype.png" />
-    <Content Include="Content\Images\Design\slider\slider-1.jpg" />
-    <Content Include="Content\Images\Design\slider\slider-2.jpg" />
-    <Content Include="Content\Images\Design\slider\slider-3.jpg" />
-    <Content Include="Content\Images\Design\slider\slider-4.jpg" />
+    <Content Include="Content\Images\Design\slider\productSlide2.jpg" />
+    <Content Include="Content\Images\Design\slider\productSlide3.jpg" />
+    <Content Include="Content\Images\Design\slider\productSlide4.jpg" />
+    <Content Include="Content\Images\Design\slider\Slide1.jpg" />
     <Content Include="Content\Images\Design\stars-0.png" />
     <Content Include="Content\Images\Design\stars-1.png" />
     <Content Include="Content\Images\Design\stars-2.png" />
@@ -361,6 +361,7 @@
     <Content Include="Views\GioHang\ViewGiohang.cshtml" />
     <Content Include="Views\ChiTiet\viewchitiet.cshtml" />
     <Content Include="Views\PartialView\PartialBuyMore.cshtml" />
+    <Content Include="Views\Index\ViewMatKinh.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
