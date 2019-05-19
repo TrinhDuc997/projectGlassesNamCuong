@@ -206,6 +206,7 @@
     <Content Include="Content\Images\Design\stars-1.png" />
     <Content Include="Content\Images\Design\stars-2.png" />
     <Content Include="Content\Images\Design\stars-3.png" />
+    <Content Include="Content\Images\Design\stars-4.png" />
     <Content Include="Content\Images\Design\stars-5.png" />
     <Content Include="Content\Images\Design\success.png" />
     <Content Include="Content\Images\Design\tab.png" />
@@ -215,7 +216,7 @@
     <Content Include="Content\Images\Design\warning.png" />
     <Content Include="Content\Images\Design\youtube.png" />
     <Content Include="Content\Images\Design\zoom-plus.png" />
-    <Content Include="Content\Images\Product\gongkinhcanch.jpg" />
+    <Content Include="Content\Images\gongkinhcanch.jpg" />
     <Content Include="Content\Images\Product\gongkinhcanhato.jpg" />
     <Content Include="Content\Images\Product\gongkinhcannhua.jpg" />
     <Content Include="Content\Images\Product\gongkinhcanrayban.jpg" />

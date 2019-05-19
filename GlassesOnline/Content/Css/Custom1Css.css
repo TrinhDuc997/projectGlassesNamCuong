@@ -1,4 +1,7 @@
-﻿#logo img {
+﻿:root{
+    --colorMain:#f86b38;
+}
+#logo img {
     width: 240px;
     height: 80px;
 }
@@ -12,7 +15,7 @@ li.home a span{
     text-indent:inherit
 }
 select{
-    background: #f86b38;
+    background: var(--colorMain);
     border: 1px solid #a52e02;
     margin: 10px 5px 20px 0;
     color: white;

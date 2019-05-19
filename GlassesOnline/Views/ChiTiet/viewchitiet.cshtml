@@ -1,4 +1,5 @@
-﻿
+﻿@using GlassesOnline.Models;
+@model SANPHAMGLA
 @{
     ViewBag.Title = "viewchitiet";
     Layout = "~/Views/_LayoutIndex.cshtml";
@@ -8,37 +9,55 @@
     
     <div class="product-info">
         <div class="left">
-            <div class="image"> <div id="wrap" style="top:0px;z-index:1000;position:relative;"><a href="image/product/iphone_1.jpg" title="iPhone" class="cloud-zoom colorbox cboxElement" id="zoom1" rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false" style="position: relative; display: block;"> <img src="image/product/iphone_1_350x350.jpg" title="#" alt="#" id="image" style="display: block;"><span id="zoom-image"><i class="zoom_bttn"></i> Zoom</span><div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div><div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div><div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div></a><div class="mousetrap" style="background-image: url(&quot;.&quot;); z-index: 999; position: absolute; width: 350px; height: 350px; left: 0px; top: 0px; cursor: pointer;"></div></div> </div>
-            <div class="image-additional"> <a href="image/product/iphone_1.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_1_350x350.jpg' "> <img src="image/product/iphone_1-62x62.jpg" width="62" title="#" alt="#"></a> <a href="image/product/htc_touch_hd_1.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_1_350x350.jpg' "> <img src="image/product/htc_touch_hd_1_62x62.jpg" width="62" title="#" alt="#"></a> <a href="image/product/htc_touch_hd_11.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_11_350x350.jpg' "> <img src="image/product/htc_touch_hd_11_62x62.jpg" width="62" title="#" alt="#"></a> <a href="image/product/iphone_2.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_2_350x350.jpg' "> <img src="image/product/iphone_2_62x62.jpg" width="62" title="#" alt="#"></a> </div>
+            <div class="image"> 
+                <div id="wrap" style="top:0px;z-index:1000;position:relative;">
+                    <a href="~/Content/Images/Product/@Model.HinhMinhHoa" title="iPhone" class="cloud-zoom colorbox cboxElement" id="zoom1" rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false" style="position: relative; display: block;">
+                        <img src="~/Content/Images/Product/@Model.HinhMinhHoa" title="#" alt="#" id="image" style="display: block;width:350px;height:350px">
+                            <span id="zoom-image"><i class="zoom_bttn"></i> Zoom</span>
+                                <div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div>
+                                <div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div>
+                                <div style="position: absolute; left: 0px; top: 0px; width: 350px; height: 350px; background-color: rgb(0, 0, 0); opacity: 0.2; display: none;"></div>
+                    </a>
+                <div class="mousetrap" style="background-image: url(&quot;.&quot;); z-index: 999; position: absolute; width: 350px; height: 350px; left: 0px; top: 0px; cursor: pointer;"></div>
+                </div> 
+            </div>
+            <div class="image-additional"> 
+                <a href="~/Content/Images/Product/@Model.HinhMinhHoa" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '/Content/Images/Product/@Model.HinhMinhHoa' ">
+                     <img src="~/Content/Images/Product/@Model.HinhMinhHoa" width="62" title="#" alt="#">
+                </a> 
+                <a href="image/product/htc_touch_hd_1.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_1_350x350.jpg' ">
+                    <img src="image/product/htc_touch_hd_1_62x62.jpg" width="62" title="#" alt="#">
+                </a>
+                <a href="image/product/htc_touch_hd_11.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_11_350x350.jpg' ">
+                   <img src="image/product/htc_touch_hd_11_62x62.jpg" width="62" title="#" alt="#">
+                </a> 
+                <a href="image/product/iphone_2.jpg" title="#" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_2_350x350.jpg' ">
+                    <img src="image/product/iphone_2_62x62.jpg" width="62" title="#" alt="#">
+                </a> 
+            </div>
         </div>
         <div class="right">
-            <h1>iPhone</h1>
+            <h1>@Model.TenSP</h1>
             <div class="description">
-                <span>Brand:</span> <a href="#">Apple</a><br>
-                <span>Product Code:</span> product 11<br>
-                <span>Availability:</span> In Stock
+                <span>Thương Hiệu:</span> <a href="#">@Model.HangSanXuat</a><br>
+                <span>Kiểu Sản Phẩm:</span> @Model.LOAISANPHAM.TenLoai
             </div>
             <div class="price">
-                Giá: <span class="price-old">$119.50</span>
-                <div class="price-tag">$120.68</div>
-                <br>
-                <span class="price-tax">Ex Tax: $101.00</span><br>
+                <div class="price-tag">@string.Format("{0:0,0}", Model.DonGia) VND</div>    
             </div>
             <div class="cart">
                 <div>
                     <div class="qty">
-                        <strong>Số Lượng:</strong> <a href="javascript:void(0);" class="qtyBtn mines">-</a>
-                        <input type="text" value="1" size="2" name="quantity" class="w30" id="qty">
-                        <a href="javascript:void(0);" class="qtyBtn plus">+</a>
+                            <strong>Số Lượng:</strong> <a href="javascript:void(0);" class="qtyBtn mines">-</a>
+                            <input type="text" value="1" size="2" name="quantity" class="w30" id="qty">
+                            <a href="javascript:void(0);" class="qtyBtn plus">+</a>
                         <div class="clear"></div>
                     </div>
                     <input type="button" class="button" id="button-cart" value="Thêm Vào Giỏ Hàng">
                 </div>
-               
-                
             </div>
             <div class="review">
-                <div><img alt="0 reviews" src="image/stars-3.png">&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">0 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">Write a review</a></div>
+                <div><img alt="0 " src="image/stars-3.png">&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">0 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">Write a review</a></div>
             </div>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a> </div>
@@ -50,36 +69,60 @@
     <!-- Tabs Start -->
     <div id="tabs" class="htabs"> <a href="#tab-description" class="selected" style="display: inline;">Miêu Tả</a> <a href="#tab-review" style="display: inline;" class="">Đánh Giá</a> </div>
     <div id="tab-description" class="tab-content" style="display: block;">
-        <p>iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.</p>
-        <h3>Features:</h3>
-        <p>Unrivaled display performance</p>
-        <ul>
-            <li> 30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.</li>
-            <li> Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.</li>
-            <li> Wide-format design for simultaneous display of two full pages of text and graphics.</li>
-            <li> Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks</li>
-            <li> Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.</li>
-            <li> Lightning-fast pixel response for full-motion digital video playback.</li>
-            <li> Support for 16.7 million saturated colors, for use in all graphics-intensive applications.</li>
-        </ul>
+        <p>@Model.MoTa</p>
+        
     </div>
     <div class="tab-content" id="tab-review" style="display: none;">
         <div class="review-list">
-            <div class="author"><b>Harnish</b> on  13/02/2013</div>
-            <div class="rating"><img alt="1 reviews" src="image/stars-3.png"></div>
-            <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</div>
+            @foreach (var dg in (IList<DANHGIASP>)ViewData["listDanhGia"])
+            {
+                switch (dg.DiemDG)
+                {
+                    case 1:
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="rating"><img src="~/Content/Images/Design/stars-1.png" /></div>
+                        <div class="text">@dg.BinhLuan</div>
+                        <br />
+                        break;
+                    case 2:
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="rating"><img src="~/Content/Images/Design/stars-2.png" /></div>
+                        <div class="text">@dg.BinhLuan</div>
+                        <br />
+                        break;
+                    case 3:
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="rating"><img src="~/Content/Images/Design/stars-3.png" /></div>
+                        <div class="text">@dg.BinhLuan</div>
+                        <br />
+                        break;
+                    case 4:
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="rating"><img src="~/Content/Images/Design/stars-4.png" /></div>
+                        <div class="text">@dg.BinhLuan</div>
+                        <br />
+                        break;
+                    case 5:
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="rating"><img src="~/Content/Images/Design/stars-5.png" /></div>
+                        <div class="text">@dg.BinhLuan</div>
+                        <br />
+                        break;
+                }
+
+            }
+
+
         </div>
-        <h2 id="review-title">Write a review</h2>
+        <h2 id="review-title">Viết Bình Luận</h2>
         <br>
-        <b>Your Name:</b><br>
-        <input type="text" value="" name="name">
+        <b>Xin Chào............! hay cho chúng tôi biết ý kiến của bạn về sản phẩm</b><br>
         <br>
         <br>
-        <b>Your Review:</b>
+        <b>Bình Luận Tại Đây:</b>
         <textarea style="width: 98%;" rows="8" cols="40" name="text"></textarea>
-        <span style="font-size: 11px;"><span style="color: #FF0000;">Note:</span> HTML is not translated!</span><br>
         <br>
-        <b>Rating:</b>&nbsp;
+        <b>Đánh Giá:</b>&nbsp;
         <input type="radio" value="1" name="rating">
         &nbsp;
         <input type="radio" value="2" name="rating">

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GlassesOnline.Models;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace GlassesOnline.Controllers
 {
@@ -42,6 +43,25 @@ namespace GlassesOnline.Controllers
         {
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult ViewDangKy(FormCollection frmDK, KHACHHANG kh)
+        {
+            kh.HoTenKH = frmDK["name"];
+            kh.Email = frmDK["email"];
+            kh.DienThoaiKH = int.Parse(frmDK["SoDienThoai"]);
+            kh.DiaChiKH = frmDK["DiaChi"];
+            kh.TenDN = frmDK["TenDangNhap"];
+            kh.MatKhau = frmDK["MatKhau"];
+            kh.GioiTinh = Boolean.Parse(frmDK["GioiTinh"]);
+            string NgaySinh = frmDK["NgaySinh"];
+            //var NS = DateTime.Parse(NgaySinh, new CultureInfo("en-US", true));
+            DateTime date = DateTime.ParseExact(NgaySinh, "dd/MM/yyyy", null);
+            //kh.NgaySinh = DateTime.Parse(Convert.ToDateTime(frmDK["NgaySinh"]).ToString("yyyy-MM-dd"));
+            kh.NgaySinh = date;
+            db.KHACHHANGs.Add(kh);
+            db.SaveChanges();
+            return RedirectToAction("ViewDangNhap", "DKDN");
         }
     }
 }
