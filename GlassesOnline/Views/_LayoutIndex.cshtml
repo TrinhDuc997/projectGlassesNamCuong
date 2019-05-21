@@ -55,25 +55,25 @@
                     Tài Khoản
                     <ul>
                         <li><a href="#">Tài Khoản Của Bạn</a></li>
-                        <li><a href="cart.html">Giỏ Hàng Của Bạn</a></li>
+                        <li><a href="~/GioHang/ViewGioHang">Giỏ Hàng Của Bạn</a></li>
                     </ul>
                 </div>
                 @{
                     if (Session["MaKH"] == null)
                     {
-                        <a href="login.html">Đăng Nhập</a>
+                        <a href="~/DKDN/ViewDangNhap">Đăng Nhập</a>
                     }
 
                     else
                     {
-                        <a href="login.html">Xin Chào! @Session["TenKH"]</a>
+                        <a href="#">Xin Chào! @Session["TenKH"]</a>
                     }
 
                 }
                 
-                <a href="register.html">Tạo Tài Khoản</a>
+                <a href="~/DKDN/ViewDangKy">Tạo Tài Khoản</a>
             </div>
-            <div id="logo"><a href="index-2.html"><img src="~/Content/Images/Design/logoNamCuong.PNG" title="ecommerce Html Template" alt="ecommerce Html Template" /></a></div>
+            <div id="logo"><a href="~/index/ViewIndex"><img src="~/Content/Images/Design/logoNamCuong.PNG" title="ecommerce Html Template" alt="ecommerce Html Template" /></a></div>
             <div id="search">
                 <div class="button-search"></div>
                 <input type="text" value="" placeholder="" id="filter_name" name="search">
@@ -131,57 +131,15 @@
         <div id="menu">
             <span>Menu</span>
             <ul>
-                <li class="home"><a title="Home" href="index-2.html"><span class="fa fa-home"></span></a></li>
+                <li class="home"><a title="Home" href="~/index/ViewIndex"><span class="fa fa-home"></span></a></li>
                 <li>
-                    <a href="category.html">Kính Mát</a>
-                    <div>
-                        <ul>
-                            <li><a href="category.html">Cameras</a></li>
-                            <li><a href="category.html">Phones</a></li>
-                            <li><a href="category.html">Tablets</a></li>
-                        </ul>
-                    </div>
+                    <a href="~/Index/ViewMatKinh?NhomSP=1">Kính Mát</a>
                 </li>
                 <li>
-                    <a href="category.html">Gọng Kính</a>
-                    <div>
-                        <ul>
-                            <li><a href="category.html">Casual shoes</a></li>
-                            <li><a href="category.html">Fancy shoes</a></li>
-                            <li><a href="category.html">Sports shoes</a></li>
-                        </ul>
-                    </div>
+                    <a href="~/Index/ViewMatKinh?NhomSP=2">Gọng Kính</a>
                 </li>
                 <li>
                     <a href="category.html">Tròng Kính</a>
-                    <div>
-                        <ul>
-                            <li><a href="category.html">Audio Books</a></li>
-                            <li><a href="category.html">Comedy Book</a></li>
-                            <li><a href="category.html">Comics Books</a></li>
-                            <li><a href="category.html">Computer Book</a></li>
-                            <li><a href="category.html">Cookies Books</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="category.html">English Books</a></li>
-                            <li><a href="category.html">Fashion Books</a></li>
-                            <li><a href="category.html">Games Books</a></li>
-                            <li><a href="category.html">God Books</a></li>
-                            <li><a href="category.html">Journal Book</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="category.html">Knowledge Books</a></li>
-                            <li><a href="category.html">Magic Books</a></li>
-                            <li><a href="category.html">Management Books</a></li>
-                            <li><a href="category.html">Student Books</a></li>
-                            <li><a href="category.html">Teachers Books</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="category.html">Toys Books</a></li>
-                            <li><a href="category.html">Travel Books</a></li>
-                            <li><a href="category.html">Video Books</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li>
                     <a href="category.html">Kính Áp Tròng</a>
@@ -243,7 +201,11 @@
                 <div class="box">
                     <div class="box-heading">Sản Phẩm Mua Nhiều</div>
                     <div class="box-content">
+<<<<<<< HEAD
                         @Html.Action("PatialBuyMore", "PartialView");
+=======
+                        @Html.Action("PartialBuyMore", "PartialView");
+>>>>>>> fe6b7fdb0d7eb470c7db74bba6f68c0f7267626a
                     </div>
                 </div>
                 <!--Latest Product End-->

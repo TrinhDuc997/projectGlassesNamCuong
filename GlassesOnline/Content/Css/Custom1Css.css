@@ -1,4 +1,7 @@
-﻿#logo img {
+﻿:root{
+    --colorMain:#f86b38;
+}
+#logo img {
     width: 240px;
     height: 80px;
 }
@@ -12,7 +15,7 @@ li.home a span{
     text-indent:inherit
 }
 select{
-    background: #f86b38;
+    background: var(--colorMain);
     border: 1px solid #a52e02;
     margin: 10px 5px 20px 0;
     color: white;
@@ -53,4 +56,12 @@ select{
     margin-top:24px;
 }
 
+<<<<<<< HEAD
 >>>>>>> 4467409f88e304e15610bf00bee193dca6372a1c:GlassesOnline/Content/Css/Custom1Css.css
+=======
+.box-product .image .BuyMore{
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+}
+>>>>>>> fe6b7fdb0d7eb470c7db74bba6f68c0f7267626a
