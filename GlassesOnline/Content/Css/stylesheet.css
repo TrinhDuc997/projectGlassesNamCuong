@@ -397,7 +397,7 @@ a.wishlist:hover {color:#F15A23;}
 .cart-info tbody td { vertical-align: top; border-bottom: 1px solid #DDDDDD; }
 .cart-info tbody .image { text-align: center; }
 .cart-info tbody .name, .cart-info tbody .model, .cart-info tbody .quantity { text-align: left; }
-.cart-info tbody .quantity input[type='image'], .cart-info tbody .quantity img { position: relative; top: 4px; cursor: pointer; }
+.cart-info tbody .quantity input[type='image'], .cart-info tbody .quantity img { position: relative; top: 0px;padding:5px; cursor: pointer; }
 .cart-info tbody .price, .cart-info tbody .total { text-align: right; }
 .cart-info tbody span.stock { color: #F00; font-weight: bold; }
 .cart-module > div { display: none; }

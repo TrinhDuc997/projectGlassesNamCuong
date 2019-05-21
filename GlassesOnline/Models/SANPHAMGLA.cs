@@ -29,8 +29,10 @@ namespace GlassesOnline.Models
         public string HinhMinhHoa { get; set; }
         public string MaLoai { get; set; }
         public Nullable<int> SoLuongSP { get; set; }
-    
-        public virtual ICollection<CTDONHANG> CTDONHANGs { get; set; }
+        public bool GioiTinh { get; set; }
+        public string KieuDang { get; set; }
+
+    public virtual ICollection<CTDONHANG> CTDONHANGs { get; set; }
         public virtual ICollection<CTPHIEUNHAP> CTPHIEUNHAPs { get; set; }
         public virtual ICollection<DANHGIASP> DANHGIASPs { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }

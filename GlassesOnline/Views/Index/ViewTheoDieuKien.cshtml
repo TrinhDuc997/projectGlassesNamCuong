@@ -1,7 +1,7 @@
 ﻿@using GlassesOnline.Models
 @model List<SANPHAMGLA>
 @{
-    ViewBag.Title = "ViewIndex";
+    ViewBag.Title = "ViewMatKinh";
     Layout = "~/Views/_LayoutIndex.cshtml";
 }
 <div id="content">
@@ -19,26 +19,26 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#slideshow').nivoSlider();
-        });
+                    $(document).ready(function() {
+                    	$('#slideshow').nivoSlider();
+                        });
     </script>
     <!--Slideshow Part End-->
     <!--Featured Product Part Start-->
     <div class="box">
-        <div class="box-heading">Sản Phẩm Mới</div>
+        <div class="box-heading">Sản Phẩm</div>
         <div class="box-content">
 
             <div class="box-product">
                 @foreach (var item in Model)
                 {
                     <div>
-                        <div class="image"><a href="~/ChiTiet/viewchitiet?_MaSP=@item.MaSP"><img src="~/Content/Images/Product/@item.HinhMinhHoa" alt="Chair Swing" /></a></div>
-                        <div class="name"><a href="~/ChiTiet/viewchitiet?_MaSP=@item.MaSP">@item.TenSP</a></div>
+                        <div class="image"><a href="~/ChiTiet/viewchitiet?MaSP=@item.MaSP"><img src="~/Content/Images/Product/@item.HinhMinhHoa" alt="Chair Swing" /></a></div>
+                        <div class="name"><a href="~/ChiTiet/viewchitiet?MaSP=@item.MaSP">@item.TenSP</a></div>
                         <div class="price"> @item.DonGia </div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-3.png" alt="Based on 1 reviews." /></div>
                         <div class="cart">
-                            <input type="button" value="Thêm Vào Giỏ Hàng" onClick="DatHang(@item.MaSP)" class="button" />
+                            <input type="button" value="Thêm Vào Giỏ Hàng" onClick="addToCart('49');" class="button" />
                         </div>
                     </div>
                 }
@@ -46,5 +46,8 @@
 
         </div>
     </div>
+    <!--Featured Product Part End-->
 </div>
+
+
 

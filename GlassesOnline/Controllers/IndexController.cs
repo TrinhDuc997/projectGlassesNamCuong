@@ -33,5 +33,22 @@ namespace GlassesOnline.Controllers
             }
             return View(DanhSachKinh.ToList());
         }
+        [HttpPost]
+        public ActionResult ViewTheoDieuKien(FormCollection frmLoc)
+        {
+            bool GioiTinh = bool.Parse(frmLoc["GioiTinh"].ToString());
+            string KhoangGia = frmLoc["KhoangGia"].ToString();
+            string KieuDang = frmLoc["KieuDang"].ToString();
+            string ThuongHieu = frmLoc["ThuongHieu"].ToString();
+            if(KhoangGia == "All")
+                KhoangGia = "%";
+            if(KieuDang == "All")
+                KieuDang = "%";
+            if(ThuongHieu == "All")
+                ThuongHieu = "%";
+            SANPHAMGLA a = db.SANPHAMGLAS.SingleOrDefault(n => n.DonGia == 280000);
+            return View();
+
+        }
     }
 }

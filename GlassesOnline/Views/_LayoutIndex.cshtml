@@ -15,10 +15,12 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Css/colorbox.html" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Content/Css/carousel.css" media="screen" />
     <link href="~/Content/Css/slideshowCss.css" rel="stylesheet" />
-
     <link href="~/Content/Css/Custom1Css.css" rel="stylesheet" />
 
     <!-- CSS Part End-->
+    @*JQuery*@
+    @*<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
     <!-- JS Part Start-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -32,6 +34,7 @@
     <script type="text/javascript" src="~/scripts/cloud_zoom.js"></script>
     <script type="text/javascript" src="~/scripts/custom.js"></script>
     <script type="text/javascript" src="~/scripts/jquery.dcjqaccordion.js"></script>
+    <script src="~/scripts/jsGioHang.js"></script>
 
     <!-- JS Part End-->
 </head>
@@ -118,7 +121,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="checkout"><a href="cart.html" class="button">Xem Giỏ Hàng</a></div>
+                    <div class="checkout"><a href="" class="button">Xem Giỏ Hàng</a></div>
                 </div>
             </div>
             <!--Mini Cart End-->
@@ -158,37 +161,38 @@
                 <div class="box">
                     <div class="box-heading">Bộ Lọc</div>
                     <div class="box-content box-category">
-                        <form>
+                        <form action="/Index/ViewTheoDieuKien" method="post" >
                             <ul id="custom_accordion">
 
                                 <li class="radio">
-                                    <label><input type="radio" name="optradio" checked>Nam</label>
+                                    <label><input type="radio" name="GioiTinh" value="true" checked>Nam</label>
                                 </li>
                                 <li class="radio">
-                                    <label><input type="radio" name="optradio">Nữ</label>
+                                    <label><input type="radio" name="GioiTinh" value="false">Nữ</label>
                                 </li>
                             </ul>
-                            <select id="GioiTinh" name="GioiTinh">
+                            <select id="KhoangGia" name="KhoangGia">
                                 <option value="All">Khoảng Giá</option>
-                                <option value="Nữ">Dưới 200.000</option>
-                                <option value="Nữ">từ 200.000 đến 500.000</option>
-                                <option value="Nữ">từ 500.000 đến 1.000.000</option>
-                                <option value="Nữ">Trên 2.000.000</option>
+                                <option value="200">Dưới 200.000</option>
+                                <option value="500">từ 200.000 đến 500.000</option>
+                                <option value="1000">từ 500.000 đến 1.000.000</option>
+                                <option value="1100">Trên 1.000.000</option>
                             </select>
-                            <select id="KieuGiang" name="KD">
+                            <select id="KieuGiang" name="KieuDang">
                                 <option value="All">Kiểu Dáng</option>
-                                <option value="Nữ">Tròn</option>
-                                <option value="Nữ">Vuông</option>
-                                <option value="Nữ">Oval</option>
-                                <option value="Nữ">Rimless</option>
+                                <option value="Tron">Tròn</option>
+                                <option value="Vuong">Vuông</option>
+                                <option value="Oval">Oval</option>
+                                <option value="Rimless">Rimless</option>
                             </select>
                             <select id="ThuongHieu" name="ThuongHieu">
-                                <option value="All">Thuong Hieu 1</option>
-                                <option value="Nữ">Thuong Hieu 2</option>
-                                <option value="Nữ">Thuong Hieu 3</option>
-                                <option value="Nữ">Thuong Hieu 4</option>
-                                <option value="Nữ">Thuong Hieu 5</option>
+                                <option value="All">Thuong Hieu</option>
+                                <option value="Nữ">Gucci</option>
+                                <option value="Nữ">Prada</option>
+                                <option value="Nữ">Coach</option>
+                                <option value="Nữ">Puma</option>
                             </select>
+                            <button id="btnLocSP" type="submit" value="">Lọc Sản Phẩm</button>
                         </form>
                     </div>
                 </div>
@@ -200,34 +204,6 @@
                         @Html.Action("PartialBuyMore", "PartialView");
                     </div>
                 </div>
-                <!--Latest Product End-->
-                <!--Specials Product Start-->
-                <div class="box">
-                    <div class="box-heading"> Khuyến Mãi</div>
-                    <div class="box-content">
-                        <div class="box-product">
-                            <div>
-                                <div class="image"><a href="product.html"><img src="image/product/apple_cinema_30-60x60.jpg" alt="Apple Tablet Retina" /></a></div>
-                                <div class="name"><a href="product.html">Apple Tablet Retina</a></div>
-                                <div class="price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </div>
-                                <div class="rating"><img src="image/stars-0.png" alt="Based on 0 reviews." /></div>
-                                <div class="cart">
-                                    <input type="button" value="Thêm Vào Giỏ Hàng" onClick="addToCart('42');" class="button" />
-                                </div>
-                            </div>
-                            <div>
-                                <div class="image"><a href="product.html"><img src="image/product/canon_eos_5d_1-60x60.jpg" alt="Canon Digital Camera" /></a></div>
-                                <div class="name"><a href="product.html">Canon Digital Camera</a></div>
-                                <div class="price"> <span class="price-old">$119.50</span> <span class="price-new">$96.00</span> </div>
-                                <div class="rating"><img src="image/stars-0.png" alt="Based on 0 reviews." /></div>
-                                <div class="cart">
-                                    <input type="button" value="Thêm Vào Giỏ Hàng" onClick="addToCart('30');" class="button" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Specials Product End-->
             </div>
             <!--Left End-->
             <!--Middle Part Start-->

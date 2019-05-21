@@ -1,6 +1,7 @@
-﻿
+﻿@using GlassesOnline.Models
+@model IEnumerable<GioHang>
 @{
-    ViewBag.Title = "ViewGiohang";
+    ViewBag.Title = "Giỏ Hàng";
     Layout = "~/Views/_LayoutIndex.cshtml";
 }
 <div id="content">
@@ -20,48 +21,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="image"><a href="#"><img title="Bag Lady" alt="Bag Lady" src="image/product/hp_1-60x60.jpg"></a></td>
-                        <td class="name"><a href="#">Bag Lady</a></td>
-                        
-                        <td class="quantity">
-                            <input type="text" size="1" value="1" name="" class="w30">
-                            &nbsp;
-                            <input type="image" title="Update" alt="Update" src="image/update.png">
-                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
-                        </td>
-                        <td class="price">$131.25</td>
-                        <td class="total">$131.25</td>
-                    </tr>
-                    <tr>
-                        <td class="image"><a href="#"><img title="Bag Lady" alt="Bag Lady" src="image/product/macbook_pro_1-60x60.jpg"></a></td>
-                        <td class="name">
-                            <a href="#">MacBook Pro</a><br>
-                            <small>Reward Points: 100</small>
-                        </td>
-                        
-                        <td class="quantity">
-                            <input type="text" size="1" value="1" name="" class="w30">
-                            &nbsp;
-                            <input type="image" title="Update" alt="Update" src="image/update.png">
-                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
-                        </td>
-                        <td class="price">$181.00</td>
-                        <td class="total">$181.00</td>
-                    </tr>
-                    <tr>
-                        <td class="image"><a href="#"><img title="Bag Lady" alt="Chair Swing" src="image/product/samsung_tab_1-60x60.jpg"></a></td>
-                        <td class="name"><a href="#">Chair Swing</a></td>
-                       
-                        <td class="quantity">
-                            <input type="text" size="1" value="1" name="" class="w30">
-                            &nbsp;
-                            <input type="image" title="Update" alt="Update" src="image/update.png">
-                            &nbsp;<a href="#"><img title="Remove" alt="Remove" src="image/remove.png"></a>
-                        </td>
-                        <td class="price">$140.50</td>
-                        <td class="total">$140.50</td>
-                    </tr>
+                    
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="image"><a href="#"><img title="Bag Lady" src="~/Content/Images/product/@item.AnhSP" style="width:60px;height:60px"></a></td>
+                                <td class="name"><a href="#">@item.TenSP</a></td>
+                                <td class="quantity">
+                                    <input type="text" size="1" value="@item.SoLuongSP" name="" class="w30" id="SoLuongSPGioHang">
+                                    <a href="#"><img type="image" title="Cập Nhật Sản phẩm" alt="Update" src="~/Content/Images/Design/update.png" /></a>
+                                    <a href="#"><img title="Xóa Sản Phẩm" alt="Remove" src="~/Content/Images/Design/remove-small.png"></a>
+                                </td>
+                                <td class="price">@item.DonGiaSP VND</td>
+                                <td class="total">@item.TongTien VND</td>
+                            </tr>
+                        }
                 </tbody>
             </table>
         </div>

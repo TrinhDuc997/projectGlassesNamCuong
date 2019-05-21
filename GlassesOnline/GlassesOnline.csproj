@@ -268,6 +268,7 @@
     <Content Include="scripts\jquery.easing-1.3.min.js" />
     <Content Include="scripts\jquery.jcarousel.min.js" />
     <Content Include="scripts\jquery.nivo.slider.pack.js" />
+    <Content Include="scripts\jsGioHang.js" />
     <Content Include="scripts\tabs.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -313,6 +314,7 @@
     <Compile Include="Models\DONDATHANG.cs">
       <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HINHTHUCGIAOHANG.cs">
       <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
     </Compile>
@@ -363,6 +365,7 @@
     <Content Include="Views\ChiTiet\viewchitiet.cshtml" />
     <Content Include="Views\PartialView\PartialBuyMore.cshtml" />
     <Content Include="Views\Index\ViewMatKinh.cshtml" />
+    <Content Include="Views\Index\ViewTheoDieuKien.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
