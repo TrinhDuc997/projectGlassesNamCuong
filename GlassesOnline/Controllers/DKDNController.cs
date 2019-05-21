@@ -38,7 +38,11 @@ namespace GlassesOnline.Controllers
             }
             return RedirectToAction("ViewDangNhap", "DKDN");
         }
+<<<<<<< HEAD
         public ActionResult ViewDangKy()
+=======
+        public ActionResult ViewDangky()
+>>>>>>> 4467409f88e304e15610bf00bee193dca6372a1c
         {
 
             return View();
