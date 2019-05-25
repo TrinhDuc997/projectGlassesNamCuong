@@ -25,7 +25,6 @@ namespace GlassesOnline.Controllers
                                   join sanpham2 in NhomSanPhamBanChay on sanpham.MaSP equals sanpham2.MaSP1
                                   orderby sanpham2.SoLuong descending
                                   select sanpham);
-
             return PartialView(SanPhamBanChay.Take(5).ToList());
         }
     }

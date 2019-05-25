@@ -1,0 +1,56 @@
+﻿#logo img {
+    width: 240px;
+    height: 80px;
+}
+#header{
+    min-height:110px;
+}
+li.home a span{
+    color: white;
+    height:35px;
+    font-size: 32px;
+    text-indent:inherit
+}
+select{
+    background: #f86b38;
+    border: 1px solid #a52e02;
+    margin: 10px 5px 20px 0;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 7px 0px;
+}
+#KieuGiang{
+    padding-right: 90px;
+}
+#ThuongHieu{
+    padding-right: 64px;
+}
+.box-product{
+    overflow:hidden;
+}
+.box .box-heading{
+    font-size:15px;
+}
+#footer .column ul{
+    width:370px;
+}
+.box-product .image img{
+    width: 152px;
+    height: 152px;
+    padding: 0px;
+}
+<<<<<<< HEAD:GlassesOnline/Content/Css/CssCustom.css
+.box-product .image .BuyMore{
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+}
+=======
+.content{
+
+
+    margin-top:24px;
+}
+
+>>>>>>> 4467409f88e304e15610bf00bee193dca6372a1c:GlassesOnline/Content/Css/Custom1Css.css
