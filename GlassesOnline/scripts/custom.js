@@ -1,4 +1,4 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
 
 /******** Menu Show Hide Sub Menu ********/
 $('#menu > ul > li').mouseover(function() {
@@ -112,5 +112,74 @@ $('#carousel ul').jcarousel({
 	visible: 5,
 	scroll: 3
 });
+    /******************* Dang Nhap Binh Luan******************/
 
+$("#btnDangNhapBL").click(function () {
+    $("#DangNhapBinhLuan").css({ "display": "none" });
+    $("#frmDangNhapBinhLuan").css({"display":"block"})
+});
+    /************************** xu ly dang nhap binh luan ********************************/
+$("#btnfrmDangNhapBL").click(function () {
+    var TenDN = $("#TenDNBinhLuan").val();
+    var MatKhau = $("#MKDNBinhLuan").val();
+    
+    $.ajax({
+        url: "/DKDN/XuLyDangNhap",
+        data: { TenDN: TenDN, MatKhau: MatKhau },
+        type: "POST",
+        success:function(result) {
+            $("#ThongBaoBinhLuan").html("Xin chào! " + result + " hay cho chúng tôi biết ý kiến của bạn về sản phẩm!")
+            $("#TenKhachHang").html("Xin Chào! " +result)
+            $("#frmDangNhapBinhLuan").css({ "display": "none" })
+            $("#frmBinhLuan").css({ "opacity": "1" })
+
+        }
+    });
+});
+$("#button-review").click(function () {
+    var _MaSP = $("#LuuMaSP").val();
+    var BinhLuan = $("#VietBinhLuan").val();
+    var DiemDG = $("input:radio[name='rating']:checked").val();
+    var ngay = new Date();
+    var thang = new Date();
+    var nam = new Date();
+    $.ajax({
+        url: "/ChiTiet/XuLyBinhLuan",
+        data: { DanhGia: BinhLuan, SoDiemDG: DiemDG, _MaSP:_MaSP},
+        type:"POST",
+        success: function (result) {
+                if (DiemDG == 1) {
+                    var Add = "<div class='author'><b>" + result + "</b> vào  " +nam.getFullYear()+"-"+thang.getMonth()+"-"+ ngay.getDate() + "</div>"
+                        + "<div class='rating'><img src='/Content/Images/Design/stars-1.png' /></div>"
+                        + "<div class='text'>" + BinhLuan + "</div>"
+                        + "<br />"
+                }
+                else if (DiemDG == 2) {
+                    var Add = "<div class='author'><b>" + result + "</b> vào  " +nam.getFullYear()+"-"+thang.getMonth()+"-"+ ngay.getDate() + "</div>"
+                         + "<div class='rating'><img src='/Content/Images/Design/stars-2.png' /></div>"
+                         + "<div class='text'>" + BinhLuan + "</div>"
+                         + "<br />"
+                }
+                else if (DiemDG == 3) {
+                    var Add = "<div class='author'><b>" + result + "</b> vào  " + nam.getFullYear() + "-" + thang.getMonth() + "-" + ngay.getDate() + "</div>"
+                        + "<div class='rating'><img src='/Content/Images/Design/stars-3.png' /></div>"
+                        + "<div class='text'>" + BinhLuan + "</div>"
+                        + "<br />"
+                }
+                else if (DiemDG == 4) {
+                    var Add = "<div class='author'><b>" + result + "</b> vào  " + nam.getFullYear() + "-" + thang.getMonth() + "-" + ngay.getDate() + "</div>"
+                        + "<div class='rating'><img src='/Content/Images/Design/stars-4.png' /></div>"
+                        + "<div class='text'>" + BinhLuan + "</div>"
+                        + "<br />"
+                }
+                else {
+                    var Add = "<div class='author'><b>" + result + "</b> vào  " + nam.getFullYear() + "-" + thang.getMonth() + "-" + ngay.getDate() + "</div>"
+                        + "<div class='rating'><img src='/Content/Images/Design/stars-5.png' /></div>"
+                        + "<div class='text'>" + BinhLuan + "</div>"
+                        + "<br />"
+                }
+                $('.review-list').append(Add);
+        }
+    });
+});
 });

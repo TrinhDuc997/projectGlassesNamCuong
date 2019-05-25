@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBGNamCuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBGNamCuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMIN">
           <Key>
             <PropertyRef Name="MaAdmin" />
@@ -19,17 +19,16 @@
           <Property Name="GioiTinhAdmin" Type="bit" />
           <Property Name="EmailAdmin" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="CTDONHANG">
+        <EntityType Name="CTDonHang">
           <Key>
             <PropertyRef Name="SoDH" />
             <PropertyRef Name="MaSP" />
           </Key>
-          <Property Name="SoDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoDH" Type="int" Nullable="false" />
           <Property Name="MaSP" Type="int" Nullable="false" />
-          <Property Name="SoLuong" Type="int" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="TongTien" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="CTPHIEUNHAP">
           <Key>
@@ -70,6 +69,7 @@
           <Property Name="MaHTGH" Type="int" />
           <Property Name="DienThoaiNhan" Type="int" />
           <Property Name="MaHTTT" Type="int" />
+          <Property Name="TongTien" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="HINHTHUCGIAOHANG">
           <Key>
@@ -136,6 +136,8 @@
           <Property Name="HinhMinhHoa" Type="varchar" MaxLength="50" />
           <Property Name="MaLoai" Type="varchar" MaxLength="50" />
           <Property Name="SoLuongSP" Type="int" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="KieuDang" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -147,26 +149,26 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_CTDONHANG_DONDATHANG">
+        <Association Name="FK_CTDonHang_DONDATHANG">
           <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
-          <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DONDATHANG">
               <PropertyRef Name="SoDH" />
             </Principal>
-            <Dependent Role="CTDONHANG">
+            <Dependent Role="CTDonHang">
               <PropertyRef Name="SoDH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CTDONHANG_SANPHAMGLAS">
+        <Association Name="FK_CTDonHang_SANPHAMGLAS">
           <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="1" />
-          <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAMGLAS">
               <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="CTDONHANG">
+            <Dependent Role="CTDonHang">
               <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
@@ -255,18 +257,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DONDATHANG_KHACHHANG">
-          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
-          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHACHHANG">
-              <PropertyRef Name="MaKH" />
-            </Principal>
-            <Dependent Role="DONDATHANG">
-              <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SANPHAMGLAS_LOAISANPHAM">
           <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
           <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="*" />
@@ -279,9 +269,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="HamLayBangDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="MaSP" Type="int" />
+                <Property Name="SoLuongDanhGia" Type="int" />
+                <Property Name="TongDiemDanhGia" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="LayDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBGNamCuongModelStoreContainer">
           <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CTDONHANG" EntityType="Self.CTDONHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTDonHang" EntityType="Self.CTDonHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANHGIASP" EntityType="Self.DANHGIASP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
@@ -293,13 +295,13 @@
           <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAMGLAS" EntityType="Self.SANPHAMGLAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CTDONHANG_DONDATHANG" Association="Self.FK_CTDONHANG_DONDATHANG">
+          <AssociationSet Name="FK_CTDonHang_DONDATHANG" Association="Self.FK_CTDonHang_DONDATHANG">
             <End Role="DONDATHANG" EntitySet="DONDATHANG" />
-            <End Role="CTDONHANG" EntitySet="CTDONHANG" />
+            <End Role="CTDonHang" EntitySet="CTDonHang" />
           </AssociationSet>
-          <AssociationSet Name="FK_CTDONHANG_SANPHAMGLAS" Association="Self.FK_CTDONHANG_SANPHAMGLAS">
+          <AssociationSet Name="FK_CTDonHang_SANPHAMGLAS" Association="Self.FK_CTDonHang_SANPHAMGLAS">
             <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
-            <End Role="CTDONHANG" EntitySet="CTDONHANG" />
+            <End Role="CTDonHang" EntitySet="CTDonHang" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPHIEUNHAP_NHACUNGCAP" Association="Self.FK_CTPHIEUNHAP_NHACUNGCAP">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
@@ -329,17 +331,12 @@
             <End Role="HINHTHUCTHANHTOAN" EntitySet="HINHTHUCTHANHTOAN" />
             <End Role="DONDATHANG" EntitySet="DONDATHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK_DONDATHANG_KHACHHANG" Association="Self.FK_DONDATHANG_KHACHHANG">
-            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
-            <End Role="DONDATHANG" EntitySet="DONDATHANG" />
-          </AssociationSet>
           <AssociationSet Name="FK_SANPHAMGLAS_LOAISANPHAM" Association="Self.FK_SANPHAMGLAS_LOAISANPHAM">
             <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
             <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBGNamCuongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -357,19 +354,18 @@
           <Property Name="GioiTinhAdmin" Type="Boolean" />
           <Property Name="EmailAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="CTDONHANG">
+        <EntityType Name="CTDonHang">
           <Key>
             <PropertyRef Name="SoDH" />
             <PropertyRef Name="MaSP" />
           </Key>
-          <Property Name="SoDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoDH" Type="Int32" Nullable="false" />
           <Property Name="MaSP" Type="Int32" Nullable="false" />
-          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="DONDATHANG" Relationship="Self.FK_CTDONHANG_DONDATHANG" FromRole="CTDONHANG" ToRole="DONDATHANG" />
-          <NavigationProperty Name="SANPHAMGLA" Relationship="Self.FK_CTDONHANG_SANPHAMGLAS" FromRole="CTDONHANG" ToRole="SANPHAMGLAS" />
+          <NavigationProperty Name="DONDATHANG" Relationship="Self.FK_CTDonHang_DONDATHANG" FromRole="CTDonHang" ToRole="DONDATHANG" />
+          <NavigationProperty Name="SANPHAMGLA" Relationship="Self.FK_CTDonHang_SANPHAMGLAS" FromRole="CTDonHang" ToRole="SANPHAMGLAS" />
         </EntityType>
         <EntityType Name="CTPHIEUNHAP">
           <Key>
@@ -415,10 +411,10 @@
           <Property Name="MaHTGH" Type="Int32" />
           <Property Name="DienThoaiNhan" Type="Int32" />
           <Property Name="MaHTTT" Type="Int32" />
-          <NavigationProperty Name="CTDONHANGs" Relationship="Self.FK_CTDONHANG_DONDATHANG" FromRole="DONDATHANG" ToRole="CTDONHANG" />
+          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="CTDonHangs" Relationship="Self.FK_CTDonHang_DONDATHANG" FromRole="DONDATHANG" ToRole="CTDonHang" />
           <NavigationProperty Name="HINHTHUCGIAOHANG" Relationship="Self.FK_DONDATHANG_HINHTHUCGIAOHANG" FromRole="DONDATHANG" ToRole="HINHTHUCGIAOHANG" />
           <NavigationProperty Name="HINHTHUCTHANHTOAN" Relationship="Self.FK_DONDATHANG_HINHTHUCTHANHTOAN" FromRole="DONDATHANG" ToRole="HINHTHUCTHANHTOAN" />
-          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_DONDATHANG_KHACHHANG" FromRole="DONDATHANG" ToRole="KHACHHANG" />
         </EntityType>
         <EntityType Name="HINHTHUCGIAOHANG">
           <Key>
@@ -450,7 +446,6 @@
           <Property Name="GioiTinh" Type="Boolean" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DANHGIASPs" Relationship="Self.FK_DANHGIASP_KHACHHANG" FromRole="KHACHHANG" ToRole="DANHGIASP" />
-          <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK_DONDATHANG_KHACHHANG" FromRole="KHACHHANG" ToRole="DONDATHANG" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
@@ -492,7 +487,9 @@
           <Property Name="HinhMinhHoa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MaLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SoLuongSP" Type="Int32" />
-          <NavigationProperty Name="CTDONHANGs" Relationship="Self.FK_CTDONHANG_SANPHAMGLAS" FromRole="SANPHAMGLAS" ToRole="CTDONHANG" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="KieuDang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CTDonHangs" Relationship="Self.FK_CTDonHang_SANPHAMGLAS" FromRole="SANPHAMGLAS" ToRole="CTDonHang" />
           <NavigationProperty Name="CTPHIEUNHAPs" Relationship="Self.FK_CTPHIEUNHAP_SANPHAMGLAS" FromRole="SANPHAMGLAS" ToRole="CTPHIEUNHAP" />
           <NavigationProperty Name="DANHGIASPs" Relationship="Self.FK_DANHGIASP_SANPHAMGLAS" FromRole="SANPHAMGLAS" ToRole="DANHGIASP" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SANPHAMGLAS_LOAISANPHAM" FromRole="SANPHAMGLAS" ToRole="LOAISANPHAM" />
@@ -507,26 +504,26 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_CTDONHANG_DONDATHANG">
+        <Association Name="FK_CTDonHang_DONDATHANG">
           <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
-          <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DONDATHANG">
               <PropertyRef Name="SoDH" />
             </Principal>
-            <Dependent Role="CTDONHANG">
+            <Dependent Role="CTDonHang">
               <PropertyRef Name="SoDH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CTDONHANG_SANPHAMGLAS">
+        <Association Name="FK_CTDonHang_SANPHAMGLAS">
           <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLA" Multiplicity="1" />
-          <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAMGLAS">
               <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="CTDONHANG">
+            <Dependent Role="CTDonHang">
               <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
@@ -615,18 +612,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DONDATHANG_KHACHHANG">
-          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
-          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHACHHANG">
-              <PropertyRef Name="MaKH" />
-            </Principal>
-            <Dependent Role="DONDATHANG">
-              <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SANPHAMGLAS_LOAISANPHAM">
           <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
           <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLA" Multiplicity="*" />
@@ -641,7 +626,7 @@
         </Association>
         <EntityContainer Name="DBGNamCuongEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
-          <EntitySet Name="CTDONHANGs" EntityType="Self.CTDONHANG" />
+          <EntitySet Name="CTDonHangs" EntityType="Self.CTDonHang" />
           <EntitySet Name="CTPHIEUNHAPs" EntityType="Self.CTPHIEUNHAP" />
           <EntitySet Name="DANHGIASPs" EntityType="Self.DANHGIASP" />
           <EntitySet Name="DONDATHANGs" EntityType="Self.DONDATHANG" />
@@ -653,13 +638,13 @@
           <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
           <EntitySet Name="SANPHAMGLAS" EntityType="Self.SANPHAMGLA" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_CTDONHANG_DONDATHANG" Association="Self.FK_CTDONHANG_DONDATHANG">
+          <AssociationSet Name="FK_CTDonHang_DONDATHANG" Association="Self.FK_CTDonHang_DONDATHANG">
             <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
-            <End Role="CTDONHANG" EntitySet="CTDONHANGs" />
+            <End Role="CTDonHang" EntitySet="CTDonHangs" />
           </AssociationSet>
-          <AssociationSet Name="FK_CTDONHANG_SANPHAMGLAS" Association="Self.FK_CTDONHANG_SANPHAMGLAS">
+          <AssociationSet Name="FK_CTDonHang_SANPHAMGLAS" Association="Self.FK_CTDonHang_SANPHAMGLAS">
             <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
-            <End Role="CTDONHANG" EntitySet="CTDONHANGs" />
+            <End Role="CTDonHang" EntitySet="CTDonHangs" />
           </AssociationSet>
           <AssociationSet Name="FK_CTPHIEUNHAP_NHACUNGCAP" Association="Self.FK_CTPHIEUNHAP_NHACUNGCAP">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
@@ -689,15 +674,24 @@
             <End Role="HINHTHUCTHANHTOAN" EntitySet="HINHTHUCTHANHTOANs" />
             <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
           </AssociationSet>
-          <AssociationSet Name="FK_DONDATHANG_KHACHHANG" Association="Self.FK_DONDATHANG_KHACHHANG">
-            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
-            <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
-          </AssociationSet>
           <AssociationSet Name="FK_SANPHAMGLAS_LOAISANPHAM" Association="Self.FK_SANPHAMGLAS_LOAISANPHAM">
             <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
             <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
           </AssociationSet>
+          <FunctionImport Name="LayDanhGia" ReturnType="Collection(DBGNamCuongModel.LayDanhGia_Result)" />
+          <FunctionImport Name="LayDanhGiaSanPham" EntitySet="DANHGIASPs" ReturnType="Collection(DBGNamCuongModel.DANHGIASP)" />
+          <FunctionImport Name="HamLayBangDanhGia" IsComposable="true" ReturnType="Collection(DBGNamCuongModel.HamLayBangDanhGia_Result)" />
         </EntityContainer>
+        <ComplexType Name="LayDanhGia_Result">
+          <Property Type="Int32" Name="MaSP" Nullable="true" />
+          <Property Type="Int32" Name="SoLuongDanhGia" Nullable="true" />
+          <Property Type="Int32" Name="TongDiemDanhGia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="HamLayBangDanhGia_Result">
+          <Property Type="Int32" Name="MaSP" Nullable="true" />
+          <Property Type="Int32" Name="SoLuongDanhGia" Nullable="true" />
+          <Property Type="Int32" Name="TongDiemDanhGia" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -719,15 +713,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CTDONHANGs">
-            <EntityTypeMapping TypeName="DBGNamCuongModel.CTDONHANG">
-              <MappingFragment StoreEntitySet="CTDONHANG">
+          <EntitySetMapping Name="CTDonHangs">
+            <EntityTypeMapping TypeName="DBGNamCuongModel.CTDonHang">
+              <MappingFragment StoreEntitySet="CTDonHang">
                 <ScalarProperty Name="SoDH" ColumnName="SoDH" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -770,6 +763,7 @@
                 <ScalarProperty Name="MaHTGH" ColumnName="MaHTGH" />
                 <ScalarProperty Name="DienThoaiNhan" ColumnName="DienThoaiNhan" />
                 <ScalarProperty Name="MaHTTT" ColumnName="MaHTTT" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -843,6 +837,8 @@
                 <ScalarProperty Name="HinhMinhHoa" ColumnName="HinhMinhHoa" />
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
                 <ScalarProperty Name="SoLuongSP" ColumnName="SoLuongSP" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="KieuDang" ColumnName="KieuDang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -857,6 +853,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LayDanhGia" FunctionName="DBGNamCuongModel.Store.LayDanhGia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBGNamCuongModel.LayDanhGia_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="SoLuongDanhGia" ColumnName="SoLuongDanhGia" />
+                <ScalarProperty Name="TongDiemDanhGia" ColumnName="TongDiemDanhGia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LayDanhGiaSanPham" FunctionName="DBGNamCuongModel.Store.LayDanhGia" />
+          <FunctionImportMapping FunctionImportName="HamLayBangDanhGia" FunctionName="DBGNamCuongModel.Store.HamLayBangDanhGia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBGNamCuongModel.HamLayBangDanhGia_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="SoLuongDanhGia" ColumnName="SoLuongDanhGia" />
+                <ScalarProperty Name="TongDiemDanhGia" ColumnName="TongDiemDanhGia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

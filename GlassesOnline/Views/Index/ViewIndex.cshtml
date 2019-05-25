@@ -30,13 +30,50 @@
         <div class="box-content">
 
             <div class="box-product">
+                
                 @foreach (var item in Model)
                 {
                     <div>
                         <div class="image"><a href="~/ChiTiet/viewchitiet?_MaSP=@item.MaSP"><img src="~/Content/Images/Product/@item.HinhMinhHoa" alt="Chair Swing" /></a></div>
                         <div class="name"><a href="~/ChiTiet/viewchitiet?_MaSP=@item.MaSP">@item.TenSP</a></div>
                         <div class="price"> @item.DonGia </div>
-                        <div class="rating"><img src="~/Content/Images/Design/stars-3.png" alt="Based on 1 reviews." /></div>
+                        @{double DanhGiaTB = 0;}
+                        @foreach (var DG in (List<HamLayBangDanhGia_Result>)ViewData["DanhGia"])
+                        {
+                            if (item.MaSP == DG.MaSP)
+                            {
+                                DanhGiaTB = double.Parse(DG.TongDiemDanhGia.ToString()) / double.Parse(DG.SoLuongDanhGia.ToString());
+                                break;
+                            }
+                        }
+                        @{
+                            if (DanhGiaTB < 1)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-0.png" alt="Based on 1 reviews." /></div>
+                            }
+                            else if (DanhGiaTB >= 1 && DanhGiaTB < 2)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-1.png" alt="Based on 1 reviews." /></div>
+                            }
+                            else if (DanhGiaTB >= 2 && DanhGiaTB < 3)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-2.png" alt="Based on 1 reviews." /></div>
+                            }
+                            else if (DanhGiaTB >= 3 && DanhGiaTB < 4)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-3.png" alt="Based on 1 reviews." /></div>
+                            }
+                            else if (DanhGiaTB >= 4 && DanhGiaTB < 5)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-4.png" alt="Based on 1 reviews." /></div>
+                            }
+                            else if (DanhGiaTB == 5)
+                            {
+                                <div class="rating"><img src="~/Content/Images/Design/stars-5.png" alt="Based on 1 reviews." /></div>
+
+                            }
+                        }
+
                         <div class="cart">
                             <input type="button" value="Thêm Vào Giỏ Hàng" onClick="DatHang(@item.MaSP)" class="button" />
                         </div>

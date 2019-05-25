@@ -63,5 +63,12 @@ namespace GlassesOnline.Controllers
             db.SaveChanges();
             return RedirectToAction("ViewDangNhap", "DKDN");
         }
+        public ActionResult XuLyDangNhap(string TenDN,string MatKhau)
+        {
+            KHACHHANG kh = db.KHACHHANGs.Single(n => n.TenDN == TenDN && n.MatKhau == MatKhau);
+            Session["MaKH"] = kh.MaKH;
+            Session["TenKH"] = kh.HoTenKH;
+            return Json(kh.HoTenKH, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -65,7 +65,7 @@
 
                     else
                     {
-                        <a href="#">Xin Chào! @Session["TenKH"]</a>
+                        <a id="TenKhachHang" href="#">Xin Chào! @Session["TenKH"]</a>
                     }
 
                 }
@@ -121,7 +121,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="checkout"><a href="" class="button">Xem Giỏ Hàng</a></div>
+                    <div class="checkout"><a href="/GioHang/ViewGioHang" class="button">Xem Giỏ Hàng</a></div>
                 </div>
             </div>
             <!--Mini Cart End-->
@@ -172,7 +172,7 @@
                                 </li>
                             </ul>
                             <select id="KhoangGia" name="KhoangGia">
-                                <option value="All">Khoảng Giá</option>
+                                <option value="0">Khoảng Giá</option>
                                 <option value="200">Dưới 200.000</option>
                                 <option value="500">từ 200.000 đến 500.000</option>
                                 <option value="1000">từ 500.000 đến 1.000.000</option>
@@ -180,17 +180,17 @@
                             </select>
                             <select id="KieuGiang" name="KieuDang">
                                 <option value="All">Kiểu Dáng</option>
-                                <option value="Tron">Tròn</option>
-                                <option value="Vuong">Vuông</option>
+                                <option value="Tròn">Tròn</option>
+                                <option value="Vuông">Vuông</option>
                                 <option value="Oval">Oval</option>
                                 <option value="Rimless">Rimless</option>
                             </select>
                             <select id="ThuongHieu" name="ThuongHieu">
                                 <option value="All">Thuong Hieu</option>
-                                <option value="Nữ">Gucci</option>
-                                <option value="Nữ">Prada</option>
-                                <option value="Nữ">Coach</option>
-                                <option value="Nữ">Puma</option>
+                                <option value="Gucci">Gucci</option>
+                                <option value="Prada">Prada</option>
+                                <option value="Coach">Coach</option>
+                                <option value="Puma">Puma</option>
                             </select>
                             <button id="btnLocSP" type="submit" value="">Lọc Sản Phẩm</button>
                         </form>

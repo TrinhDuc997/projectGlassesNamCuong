@@ -14,7 +14,7 @@ namespace GlassesOnline.Controllers
         public ActionResult PartialBuyMore()
         {
 
-            var NhomSanPhamBanChay = from NhomSP in db.CTDONHANGs
+            var NhomSanPhamBanChay = from NhomSP in db.CTDonHangs
                                      group NhomSP by NhomSP.MaSP into GroupNhomSP
                                      select new
                                      {

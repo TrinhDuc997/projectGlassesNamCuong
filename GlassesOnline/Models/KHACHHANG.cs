@@ -17,7 +17,6 @@ namespace GlassesOnline.Models
         public KHACHHANG()
         {
             this.DANHGIASPs = new HashSet<DANHGIASP>();
-            this.DONDATHANGs = new HashSet<DONDATHANG>();
         }
     
         public int MaKH { get; set; }
@@ -31,6 +30,5 @@ namespace GlassesOnline.Models
         public string Email { get; set; }
     
         public virtual ICollection<DANHGIASP> DANHGIASPs { get; set; }
-        public virtual ICollection<DONDATHANG> DONDATHANGs { get; set; }
     }
 }

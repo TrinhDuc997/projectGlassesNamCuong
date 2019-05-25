@@ -12,7 +12,8 @@ namespace GlassesOnline.Controllers
         DBGNamCuongEntities db = new DBGNamCuongEntities();
         // GET: Index
         public ActionResult ViewIndex()
-        {   
+        {
+            ViewData["DanhGia"] = db.HamLayBangDanhGia().ToList();
             return View(db.SANPHAMGLAS.ToList());
         }
         public ActionResult ViewMatKinh(int nhomSP)
@@ -37,17 +38,62 @@ namespace GlassesOnline.Controllers
         public ActionResult ViewTheoDieuKien(FormCollection frmLoc)
         {
             bool GioiTinh = bool.Parse(frmLoc["GioiTinh"].ToString());
-            string KhoangGia = frmLoc["KhoangGia"].ToString();
+            int KhoangGia =int.Parse(frmLoc["KhoangGia"].ToString());
             string KieuDang = frmLoc["KieuDang"].ToString();
             string ThuongHieu = frmLoc["ThuongHieu"].ToString();
-            if(KhoangGia == "All")
-                KhoangGia = "%";
-            if(KieuDang == "All")
-                KieuDang = "%";
+
+            if (KieuDang == "All")
+                KieuDang = "";
             if(ThuongHieu == "All")
-                ThuongHieu = "%";
-            SANPHAMGLA a = db.SANPHAMGLAS.SingleOrDefault(n => n.DonGia == 280000);
-            return View();
+                ThuongHieu = "";
+            var DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                  where SP.GioiTinh == GioiTinh
+                                  select SP;
+            if (KhoangGia == 0)
+            {
+                 DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                      where SP.GioiTinh == GioiTinh
+                                      && SP.KieuDang.StartsWith(KieuDang)
+                                      && SP.HangSanXuat.StartsWith(ThuongHieu)
+                                  select SP;
+            }
+            else if(KhoangGia == 200)
+            {
+                 DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                      where SP.GioiTinh == GioiTinh
+                                      && SP.KieuDang.StartsWith(KieuDang)
+                                      && SP.HangSanXuat.StartsWith(ThuongHieu)
+                                      && SP.DonGia < 200000
+                                  select SP;
+            }
+            else if(KhoangGia == 500)
+            {
+                 DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                      where SP.GioiTinh == GioiTinh
+                                      && SP.KieuDang.StartsWith( KieuDang)
+                                      && SP.HangSanXuat.StartsWith( ThuongHieu)
+                                      && SP.DonGia >= 200000 && SP.DonGia < 500000
+                                  select SP;
+            }
+            else if (KhoangGia == 1000)
+            {
+                 DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                      where SP.GioiTinh == GioiTinh
+                                      && SP.KieuDang.StartsWith(KieuDang)
+                                      && SP.HangSanXuat.StartsWith( ThuongHieu)
+                                      && SP.DonGia >= 500000 && SP.DonGia < 1000000
+                                      select SP;
+            }
+            else
+            {
+                     DanhSachSPDaLoc = from SP in db.SANPHAMGLAS
+                                          where SP.GioiTinh == GioiTinh
+                                          && SP.KieuDang.StartsWith(KieuDang)
+                                          && SP.HangSanXuat.StartsWith(ThuongHieu)
+                                          && SP.DonGia >= 1000000
+                                          select SP;
+            }
+            return View(DanhSachSPDaLoc.ToList());
 
         }
     }

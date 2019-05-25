@@ -10,17 +10,11 @@
 namespace GlassesOnline.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CTDonHang
+    public partial class HamLayBangDanhGia_Result
     {
-        public int SoDH { get; set; }
-        public int MaSP { get; set; }
-        public int SoLuong { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
-    
-        public virtual DONDATHANG DONDATHANG { get; set; }
-        public virtual SANPHAMGLA SANPHAMGLA { get; set; }
+        public Nullable<int> MaSP { get; set; }
+        public Nullable<int> SoLuongDanhGia { get; set; }
+        public Nullable<int> TongDiemDanhGia { get; set; }
     }
 }

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBGNamCuongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="MaAdmin" />
+    </Key>
+    <Property Name="MaAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenAdmin" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiaChiAdmin" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoaiAdmin" Type="int" />
+    <Property Name="TenDNAdmin" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhauAdmin" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySinhAdmin" Type="smalldatetime" />
+    <Property Name="GioiTinhAdmin" Type="bit" />
+    <Property Name="EmailAdmin" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CTDonHang">
+    <Key>
+      <PropertyRef Name="SoDH" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="SoDH" Type="int" Nullable="false" />
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CTPHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MaPhieu" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaPhieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNCC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaSP" Type="int" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DANHGIASP">
+    <Key>
+      <PropertyRef Name="MaDG" />
+    </Key>
+    <Property Name="MaDG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSP" Type="int" />
+    <Property Name="HoTenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="BinhLuan" Type="ntext" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="MaKH" Type="int" />
+    <Property Name="DiemDG" Type="int" />
+    <Property Name="TenDN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DONDATHANG">
+    <Key>
+      <PropertyRef Name="SoDH" />
+    </Key>
+    <Property Name="SoDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKH" Type="int" />
+    <Property Name="NgayDH" Type="smalldatetime" />
+    <Property Name="NgayGiaoHang" Type="smalldatetime" />
+    <Property Name="TenNguoiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaHTGH" Type="int" />
+    <Property Name="DienThoaiNhan" Type="int" />
+    <Property Name="MaHTTT" Type="int" />
+    <Property Name="TongTien" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="HINHTHUCGIAOHANG">
+    <Key>
+      <PropertyRef Name="MaHTGH" />
+    </Key>
+    <Property Name="MaHTGH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHTGH" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HINHTHUCTHANHTOAN">
+    <Key>
+      <PropertyRef Name="MaHTTT" />
+    </Key>
+    <Property Name="MaHTTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHTTT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoaiKH" Type="int" />
+    <Property Name="TenDN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySinh" Type="smalldatetime" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOAISANPHAM">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHACUNGCAP">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenNCC" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="int" Nullable="false" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MaPhieu" />
+    </Key>
+    <Property Name="MaPhieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayNhap" Type="smalldatetime" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="TongTien" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SANPHAMGLAS">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="HangSanXuat" Type="nvarchar" MaxLength="50" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MoTa" Type="ntext" />
+    <Property Name="HinhMinhHoa" Type="varchar" MaxLength="50" />
+    <Property Name="MaLoai" Type="varchar" MaxLength="50" />
+    <Property Name="SoLuongSP" Type="int" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="KieuDang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CTDonHang_DONDATHANG">
+    <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
+    <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONDATHANG">
+        <PropertyRef Name="SoDH" />
+      </Principal>
+      <Dependent Role="CTDonHang">
+        <PropertyRef Name="SoDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDonHang_SANPHAMGLAS">
+    <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="1" />
+    <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAMGLAS">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CTDonHang">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEUNHAP_NHACUNGCAP">
+    <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+    <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHACUNGCAP">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="CTPHIEUNHAP">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEUNHAP_PHIEUNHAP">
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+    <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAP">
+        <PropertyRef Name="MaPhieu" />
+      </Principal>
+      <Dependent Role="CTPHIEUNHAP">
+        <PropertyRef Name="MaPhieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPHIEUNHAP_SANPHAMGLAS">
+    <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="1" />
+    <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAMGLAS">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CTPHIEUNHAP">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DANHGIASP_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DANHGIASP" Type="Self.DANHGIASP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DANHGIASP">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DANHGIASP_SANPHAMGLAS">
+    <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="0..1" />
+    <End Role="DANHGIASP" Type="Self.DANHGIASP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAMGLAS">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="DANHGIASP">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONDATHANG_HINHTHUCGIAOHANG">
+    <End Role="HINHTHUCGIAOHANG" Type="Self.HINHTHUCGIAOHANG" Multiplicity="0..1" />
+    <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HINHTHUCGIAOHANG">
+        <PropertyRef Name="MaHTGH" />
+      </Principal>
+      <Dependent Role="DONDATHANG">
+        <PropertyRef Name="MaHTGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DONDATHANG_HINHTHUCTHANHTOAN">
+    <End Role="HINHTHUCTHANHTOAN" Type="Self.HINHTHUCTHANHTOAN" Multiplicity="0..1" />
+    <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HINHTHUCTHANHTOAN">
+        <PropertyRef Name="MaHTTT" />
+      </Principal>
+      <Dependent Role="DONDATHANG">
+        <PropertyRef Name="MaHTTT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SANPHAMGLAS_LOAISANPHAM">
+    <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
+    <End Role="SANPHAMGLAS" Type="Self.SANPHAMGLAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISANPHAM">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="SANPHAMGLAS">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="HamLayBangDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MaSP" Type="int" />
+          <Property Name="SoLuongDanhGia" Type="int" />
+          <Property Name="TongDiemDanhGia" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="LayDanhGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DBGNamCuongModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTDonHang" EntityType="Self.CTDonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHGIASP" EntityType="Self.DANHGIASP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HINHTHUCGIAOHANG" EntityType="Self.HINHTHUCGIAOHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HINHTHUCTHANHTOAN" EntityType="Self.HINHTHUCTHANHTOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SANPHAMGLAS" EntityType="Self.SANPHAMGLAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTDonHang_DONDATHANG" Association="Self.FK_CTDonHang_DONDATHANG">
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+      <End Role="CTDonHang" EntitySet="CTDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDonHang_SANPHAMGLAS" Association="Self.FK_CTDonHang_SANPHAMGLAS">
+      <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
+      <End Role="CTDonHang" EntitySet="CTDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEUNHAP_NHACUNGCAP" Association="Self.FK_CTPHIEUNHAP_NHACUNGCAP">
+      <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+      <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEUNHAP_PHIEUNHAP" Association="Self.FK_CTPHIEUNHAP_PHIEUNHAP">
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+      <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPHIEUNHAP_SANPHAMGLAS" Association="Self.FK_CTPHIEUNHAP_SANPHAMGLAS">
+      <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
+      <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DANHGIASP_KHACHHANG" Association="Self.FK_DANHGIASP_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DANHGIASP" EntitySet="DANHGIASP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DANHGIASP_SANPHAMGLAS" Association="Self.FK_DANHGIASP_SANPHAMGLAS">
+      <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
+      <End Role="DANHGIASP" EntitySet="DANHGIASP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONDATHANG_HINHTHUCGIAOHANG" Association="Self.FK_DONDATHANG_HINHTHUCGIAOHANG">
+      <End Role="HINHTHUCGIAOHANG" EntitySet="HINHTHUCGIAOHANG" />
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DONDATHANG_HINHTHUCTHANHTOAN" Association="Self.FK_DONDATHANG_HINHTHUCTHANHTOAN">
+      <End Role="HINHTHUCTHANHTOAN" EntitySet="HINHTHUCTHANHTOAN" />
+      <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SANPHAMGLAS_LOAISANPHAM" Association="Self.FK_SANPHAMGLAS_LOAISANPHAM">
+      <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
+      <End Role="SANPHAMGLAS" EntitySet="SANPHAMGLAS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

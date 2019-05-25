@@ -12,6 +12,9 @@ namespace GlassesOnline.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class DBGNamCuongEntities : DbContext
     {
@@ -26,7 +29,7 @@ namespace GlassesOnline.Models
         }
     
         public DbSet<ADMIN> ADMINs { get; set; }
-        public DbSet<CTDONHANG> CTDONHANGs { get; set; }
+        public DbSet<CTDonHang> CTDonHangs { get; set; }
         public DbSet<CTPHIEUNHAP> CTPHIEUNHAPs { get; set; }
         public DbSet<DANHGIASP> DANHGIASPs { get; set; }
         public DbSet<DONDATHANG> DONDATHANGs { get; set; }
@@ -38,5 +41,26 @@ namespace GlassesOnline.Models
         public DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
         public DbSet<SANPHAMGLA> SANPHAMGLAS { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+    
+        public virtual ObjectResult<LayDanhGia_Result> LayDanhGia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LayDanhGia_Result>("LayDanhGia");
+        }
+    
+        public virtual ObjectResult<DANHGIASP> LayDanhGiaSanPham()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DANHGIASP>("LayDanhGiaSanPham");
+        }
+    
+        public virtual ObjectResult<DANHGIASP> LayDanhGiaSanPham(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DANHGIASP>("LayDanhGiaSanPham", mergeOption);
+        }
+    
+        [EdmFunction("DBGNamCuongEntities", "HamLayBangDanhGia")]
+        public virtual IQueryable<HamLayBangDanhGia_Result> HamLayBangDanhGia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<HamLayBangDanhGia_Result>("[DBGNamCuongEntities].[HamLayBangDanhGia]()");
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace GlassesOnline.Models
     {
         public DONDATHANG()
         {
-            this.CTDONHANGs = new HashSet<CTDONHANG>();
+            this.CTDonHangs = new HashSet<CTDonHang>();
         }
     
         public int SoDH { get; set; }
@@ -28,10 +28,10 @@ namespace GlassesOnline.Models
         public Nullable<int> MaHTGH { get; set; }
         public Nullable<int> DienThoaiNhan { get; set; }
         public Nullable<int> MaHTTT { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
     
-        public virtual ICollection<CTDONHANG> CTDONHANGs { get; set; }
+        public virtual ICollection<CTDonHang> CTDonHangs { get; set; }
         public virtual HINHTHUCGIAOHANG HINHTHUCGIAOHANG { get; set; }
         public virtual HINHTHUCTHANHTOAN HINHTHUCTHANHTOAN { get; set; }
-        public virtual KHACHHANG KHACHHANG { get; set; }
     }
 }

@@ -217,6 +217,7 @@
     <Content Include="Content\Images\Design\youtube.png" />
     <Content Include="Content\Images\Design\zoom-plus.png" />
     <Content Include="Content\Images\gongkinhcanch.jpg" />
+    <Content Include="Content\Images\Product\gongkinhcanch.jpg" />
     <Content Include="Content\Images\Product\gongkinhcanhato.jpg" />
     <Content Include="Content\Images\Product\gongkinhcannhua.jpg" />
     <Content Include="Content\Images\Product\gongkinhcanrayban.jpg" />
@@ -243,15 +244,15 @@
     <Content Include="Content\Images\Product\matkinhcan.jpg" />
     <Content Include="Content\Images\Product\matkinhthoitrang.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DBGlassesNamCuong.Context.tt">
+    <Content Include="Models\DBGNamCuong.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
-      <LastGenOutput>DBGlassesNamCuong.Context.cs</LastGenOutput>
+      <DependentUpon>DBGNamCuong.edmx</DependentUpon>
+      <LastGenOutput>DBGNamCuong.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBGlassesNamCuong.tt">
+    <Content Include="Models\DBGNamCuong.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
-      <LastGenOutput>DBGlassesNamCuong.cs</LastGenOutput>
+      <DependentUpon>DBGNamCuong.edmx</DependentUpon>
+      <LastGenOutput>DBGNamCuong.cs</LastGenOutput>
     </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -285,59 +286,65 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ADMIN.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CTDONHANG.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+    <Compile Include="Models\CTDonHang.cs">
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CTPHIEUNHAP.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DANHGIASP.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBGlassesNamCuong.Context.cs">
+    <Compile Include="Models\DBGNamCuong.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBGlassesNamCuong.Context.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBGlassesNamCuong.cs">
+    <Compile Include="Models\DBGNamCuong.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBGlassesNamCuong.Designer.cs">
+    <Compile Include="Models\DBGNamCuong.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
+      <DependentUpon>DBGNamCuong.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DONDATHANG.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\HamLayBangDanhGia_Result.cs">
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HINHTHUCGIAOHANG.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HINHTHUCTHANHTOAN.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHACHHANG.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LayDanhGia_Result.cs">
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAISANPHAM.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHACUNGCAP.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHIEUNHAP.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SANPHAMGLA.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBGlassesNamCuong.tt</DependentUpon>
+      <DependentUpon>DBGNamCuong.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -351,14 +358,6 @@
     </Content>
     <Content Include="Views\_LayoutIndex.cshtml" />
     <Content Include="Views\Index\ViewIndex.cshtml" />
-    <EntityDeploy Include="Models\DBGlassesNamCuong.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBGlassesNamCuong.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBGlassesNamCuong.edmx.diagram">
-      <DependentUpon>DBGlassesNamCuong.edmx</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\DKDN\ViewDangNhap.cshtml" />
     <Content Include="Views\DKDN\ViewDangky.cshtml" />
     <Content Include="Views\GioHang\ViewGiohang.cshtml" />
@@ -366,6 +365,13 @@
     <Content Include="Views\PartialView\PartialBuyMore.cshtml" />
     <Content Include="Views\Index\ViewMatKinh.cshtml" />
     <Content Include="Views\Index\ViewTheoDieuKien.cshtml" />
+    <EntityDeploy Include="Models\DBGNamCuong.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBGNamCuong.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBGNamCuong.edmx.diagram">
+      <DependentUpon>DBGNamCuong.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

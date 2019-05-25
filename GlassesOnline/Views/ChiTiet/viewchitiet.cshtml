@@ -43,7 +43,8 @@
                 <span>Kiểu Sản Phẩm:</span> @Model.LOAISANPHAM.TenLoai
             </div>
             <div class="price">
-                <div class="price-tag">@string.Format("{0:0,0}", Model.DonGia) VND</div>    
+                <div class="price-tag">@string.Format("{0:0,0}", Model.DonGia) VND</div>
+                <input id="LuuMaSP" type="text" value="@Model.MaSP" style="display:none" />
             </div>
             <div class="cart">
                 <div>
@@ -57,13 +58,49 @@
                 </div>
             </div>
             <div class="review">
-                <div><img alt="0 " src="image/stars-3.png">&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">0 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');">Write a review</a></div>
+                <div>
+                    @{
+                        double DanhGiaTB = 0;
+                        string SoLuongDanhGia = "0";
+                        if(ViewData["DanhGia"] != null)
+                        {
+                            HamLayBangDanhGia_Result DanhGia = (HamLayBangDanhGia_Result)ViewData["DanhGia"];
+                            DanhGiaTB = double.Parse(DanhGia.TongDiemDanhGia.ToString()) / double.Parse(DanhGia.SoLuongDanhGia.ToString());
+                            SoLuongDanhGia = DanhGia.SoLuongDanhGia.ToString();
+                        }
+                        if (DanhGiaTB < 1)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-0.png">
+                        }
+                        else if (DanhGiaTB >= 1 && DanhGiaTB < 2)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-1.png">
+                        }
+                        else if (DanhGiaTB >= 2 && DanhGiaTB < 3)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-2.png">
+                        }
+                        else if (DanhGiaTB >= 3 && DanhGiaTB < 4)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-3.png">
+                        }
+                        else if (DanhGiaTB >= 4 && DanhGiaTB < 5)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-4.png">
+                        }
+                        else if (DanhGiaTB == 5)
+                        {
+                            <img alt="0 " src="~/Content/Images/Design/stars-5.png">
+                        }
+                    }
+                    <a onclick="$('a[href=\'#tab-review\']').trigger('click');">@SoLuongDanhGia Đánh Giá |</a>
+                    <a onclick="$('a[href=\'#tab-review\']').trigger('click');"> Viết Đánh Giá</a>
+                </div>
             </div>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a> </div>
             <script type="text/javascript" src="../../../s7.addthis.com/js/300/addthis_widget.js#pubid=xa-506f325f57fbfc95"></script>
             <!-- AddThis Button END -->
-           
         </div>
     </div>
     <!-- Tabs Start -->
@@ -79,31 +116,31 @@
                 switch (dg.DiemDG)
                 {
                     case 1:
-                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @string.Format("{0:dd/MM/yyyy}", dg.ThoiGian)</div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-1.png" /></div>
                         <div class="text">@dg.BinhLuan</div>
                         <br />
                         break;
                     case 2:
-                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @string.Format("{0:dd/MM/yyyy}", dg.ThoiGian)</div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-2.png" /></div>
                         <div class="text">@dg.BinhLuan</div>
                         <br />
                         break;
                     case 3:
-                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @string.Format("{0:dd/MM/yyyy}", dg.ThoiGian)</div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-3.png" /></div>
                         <div class="text">@dg.BinhLuan</div>
                         <br />
                         break;
                     case 4:
-                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="author"><b>@dg.HoTenKH</b> vào  @string.Format("{0:dd/MM/yyyy}", dg.ThoiGian)</div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-4.png" /></div>
                         <div class="text">@dg.BinhLuan</div>
                         <br />
                         break;
                     case 5:
-                        <div class="author"><b>@dg.HoTenKH</b> vào  @dg.ThoiGian</div>
+                        <div class="author"><b>@dg.HoTenKH</b> vào @string.Format("{0:dd/MM/yyyy}", dg.ThoiGian) </div>
                         <div class="rating"><img src="~/Content/Images/Design/stars-5.png" /></div>
                         <div class="text">@dg.BinhLuan</div>
                         <br />
@@ -115,28 +152,79 @@
 
         </div>
         <h2 id="review-title">Viết Bình Luận</h2>
-        <br>
-        <b>Xin Chào............! hay cho chúng tôi biết ý kiến của bạn về sản phẩm</b><br>
-        <br>
-        <br>
-        <b>Bình Luận Tại Đây:</b>
-        <textarea style="width: 98%;" rows="8" cols="40" name="text"></textarea>
-        <br>
-        <b>Đánh Giá:</b>&nbsp;
-        <input type="radio" value="1" name="rating">
-        &nbsp;
-        <input type="radio" value="2" name="rating">
-        &nbsp;
-        <input type="radio" value="3" name="rating">
-        &nbsp;
-        <input type="radio" value="4" name="rating">
-        &nbsp;
-        <input type="radio" value="5" name="rating">
-        <br>
-        <br>
-        <div class="buttons">
-            <div class="right"><a class="button" id="button-review">Continue</a></div>
-        </div>
+
+        @if (Session["MaKH"] == null)
+        {
+            <br>
+            <b id="ThongBaoBinhLuan">Vui lòng đăng nhập để bình luận về sản phẩm.</b><br>
+            <br>
+            <br>
+            <div id="BinhLuan">
+                <div id="DangNhapBinhLuan">
+                    <button id="btnDangNhapBL" type="button">Đăng Nhập Tại Đây</button>
+                </div>
+                <div id="frmDangNhapBinhLuan">
+                    <input type="text" id="TenDNBinhLuan" placeholder="Tên Đăng Nhập" />
+                    <br />
+                    <input type="password" id="MKDNBinhLuan" placeholder="Mật Khẩu" />
+                    <div class="buttons">
+                        <a class="button" id="btnfrmDangNhapBL">Đăng Nhập</a>
+                    </div>
+                </div>
+                <div id="frmBinhLuan">
+                    <b>Bình Luận Tại Đây:</b>
+                    <textarea id="VietBinhLuan" style="width: 98%;" rows="8" cols="40" name="text"></textarea>
+                    <br>
+                    <b>Đánh Giá:</b>&nbsp;
+                    <input type="radio" value="1" name="rating">
+                    &nbsp;
+                    <input type="radio" value="2" name="rating">
+                    &nbsp;
+                    <input type="radio" value="3" name="rating">
+                    &nbsp;
+                    <input type="radio" value="4" name="rating">
+                    &nbsp;
+                    <input type="radio" value="5" name="rating">
+                    <div class="buttons">
+                        <div class="right"><a class="button" id="button-review">Bình Luận</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+        }
+        else
+        {
+            <br>
+            <b id="ThongBaoBinhLuan">Xin Chào! @Session["TenKH"] hay cho chúng tôi biết ý kiến của bạn về sản phẩm</b><br>
+            <br>
+            <br>
+            <div id="BinhLuan">
+                <div id="frmBinhLuan" style="opacity:1">
+                    <b>Bình Luận Tại Đây:</b>
+                    <textarea id="VietBinhLuan" style="width: 98%;" rows="8" cols="40" name="text"></textarea>
+                    <br>
+                    <b>Đánh Giá:</b>&nbsp;
+                    <input type="radio" value="1" name="rating">
+                    &nbsp;
+                    <input type="radio" value="2" name="rating">
+                    &nbsp;
+                    <input type="radio" value="3" name="rating">
+                    &nbsp;
+                    <input type="radio" value="4" name="rating">
+                    &nbsp;
+                    <input type="radio" value="5" name="rating">
+                    <div class="buttons">
+                        <div class="right"><a class="button" id="button-review">Bình Luận</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+        }
+
     </div>
     <!-- Tabs End -->
     <!-- Related Products Start -->
@@ -144,30 +232,21 @@
         <div class="box-heading"><span>Sản Phẩm Liên Quan</span></div>
         <div class="box-content">
             <div class="box-product">
-                <div>
-                    <div class="image"><a href="product.html"><img alt="iPad Classic" src="image/product/ipod_classic_1-152x152.jpg"></a></div>
-                    <div class="name"><a href="product.html">iPad Classic</a></div>
-                    <div class="price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </div>
-                    <a class="button">Thêm Vào Giỏ Hàng</a>
-                </div>
-                <div>
-                    <div class="image"><a href="product.html"><img alt="Sports Watch Band" src="image/product/samsung_syncmaster_941bw-152x152.jpg"></a></div>
-                    <div class="name"><a href="product.html">Sports Watch Band</a></div>
-                    <div class="price"><span class="price-new">$95.00</span></div>
-                    <a class="button">Thêm Vào Giỏ Hàng</a>
-                </div>
-                <div>
-                    <div class="image"><a href="product.html"><img alt="iPhone" src="image/product/iphone_1-152x152.jpg"></a></div>
-                    <div class="name"><a href="product.html">iPhone</a></div>
-                    <div class="price"> <span class="price-old">$109.50</span> <span class="price-new">$101.50</span> </div>
-                    <a class="button">Thêm Vào Giỏ Hàng</a>
-                </div>
-                <div>
-                    <div class="image"><a href="product.html"><img alt="Casual Saddle Shoes" src="image/product/hp_1-152x152.jpg"></a></div>
-                    <div class="name"><a href="product.html">Casual Saddle Shoes</a></div>
-                    <div class="price"><span class="price-new">$95.00</span></div>
-                    <a class="button">Thêm Vào Giỏ Hàng</a>
-                </div>
+                @foreach (var item in (IList<SANPHAMGLA>)ViewData["listSanPhamLienQuan"])
+                {
+                    <div>
+                        <div class="image"><a href="/ChiTiet/viewchitiet?_MaSP=@item.MaSP"><img alt="" src="~/Content/Images/Product/@item.HinhMinhHoa"></a></div>
+                        <div class="name"><a href="product.html">@item.TenSP</a></div>
+                        @{ 
+                            double GiamGia = double.Parse(@item.DonGia.ToString()) - 20000;
+                            
+                        }
+                        <div class="price"> <span class="price-old">@item.DonGia VND</span> <span class="price-new">@GiamGia VND </span> </div>
+
+<a class="button">Thêm Vào Giỏ Hàng</a>
+                    </div>
+                }
+                
             </div>
         </div>
     </div>

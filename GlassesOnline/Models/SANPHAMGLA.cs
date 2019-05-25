@@ -16,7 +16,7 @@ namespace GlassesOnline.Models
     {
         public SANPHAMGLA()
         {
-            this.CTDONHANGs = new HashSet<CTDONHANG>();
+            this.CTDonHangs = new HashSet<CTDonHang>();
             this.CTPHIEUNHAPs = new HashSet<CTPHIEUNHAP>();
             this.DANHGIASPs = new HashSet<DANHGIASP>();
         }
@@ -29,8 +29,10 @@ namespace GlassesOnline.Models
         public string HinhMinhHoa { get; set; }
         public string MaLoai { get; set; }
         public Nullable<int> SoLuongSP { get; set; }
+        public Nullable<bool> GioiTinh { get; set; }
+        public string KieuDang { get; set; }
     
-        public virtual ICollection<CTDONHANG> CTDONHANGs { get; set; }
+        public virtual ICollection<CTDonHang> CTDonHangs { get; set; }
         public virtual ICollection<CTPHIEUNHAP> CTPHIEUNHAPs { get; set; }
         public virtual ICollection<DANHGIASP> DANHGIASPs { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
